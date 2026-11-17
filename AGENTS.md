@@ -25,7 +25,7 @@ Implementar a venda de ingressos com assento marcado (300 assentos), garantindo 
 - `backend/demo_concurrency.py`: demonstração das 100 requisições simultâneas.
 - `backend/locustfile.py`: cenário de carga para a demonstração.
 - `frontend/`: interface React com mapa de assentos.
-- `docs/`: decisões arquiteturais (ADR), especificação da API, roteiro da apresentação e checklist operacional (`checklist-apresentacao.md`).
+- `docs/`: decisões arquiteturais (ADR), especificação da API, roteiro da apresentação, checklist operacional (`checklist-apresentacao.md`) e o roteiro completo para 5 apresentadores (`roteiro-apresentacao-5-pessoas.pdf`).
 
 ## Convenções
 

@@ -34,7 +34,9 @@ Sistema de venda de ingressos para um teatro com **300 assentos**, com reserva t
 │   ├── adr-001-concorrencia-e-expiracao.md
 │   ├── spec-api.md
 │   ├── apresentacao.md
-│   └── checklist-apresentacao.md
+│   ├── checklist-apresentacao.md
+│   ├── roteiro-apresentacao-5-pessoas.pdf   # roteiro completo dividido em 5 falas
+│   └── roteiro-apresentacao-5-pessoas.html  # mesma versão, para reimprimir no navegador
 ├── docker-compose.yml         # MySQL 8.4
 ├── AGENTS.md                  # regras e decisões de engenharia
 └── README.md
@@ -225,6 +227,13 @@ Parar o banco: `docker compose down` (os dados ficam no volume). Para apagar os 
 - **Como a reserva expira sem verificar o banco a cada segundo?** Com `expires_at` e expiração preguiçosa: a validade é checada no momento de uso (listar assentos, reservar, pagar) e a reserva vencida é encerrada ali mesmo, liberando o assento.
 
 Detalhes em [`AGENTS.md`](AGENTS.md), [`docs/adr-001-concorrencia-e-expiracao.md`](docs/adr-001-concorrencia-e-expiracao.md) e [`docs/spec-api.md`](docs/spec-api.md). O roteiro da apresentação está em [`docs/apresentacao.md`](docs/apresentacao.md) e a lista de verificação em [`docs/checklist-apresentacao.md`](docs/checklist-apresentacao.md).
+
+### Roteiro da apresentação (equipe de 5)
+
+O documento completo — falas cronometradas por integrante, arquitetura, comparação com as alternativas (lock no Redis e job de varredura), padrões de projeto/SOLID, dossiê dos 25 arquivos, runbook da demo e 18 perguntas da banca com respostas — está em:
+
+- [`docs/roteiro-apresentacao-5-pessoas.pdf`](docs/roteiro-apresentacao-5-pessoas.pdf) (40 páginas)
+- [`docs/roteiro-apresentacao-5-pessoas.html`](docs/roteiro-apresentacao-5-pessoas.html) (fonte para reimprimir: abrir no navegador e usar *Imprimir → Salvar como PDF*)
 
 ## Limitações conhecidas
 

@@ -1,0 +1,1258 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Roteiro de Apresentação — Venda de Ingressos com Assento Marcado</title>
+<style>
+  @page { size: A4; margin: 17mm 15mm 19mm 15mm; }
+  @page :first { margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.2pt; line-height: 1.5; color: #1f2937;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  p { margin: 0 0 7pt 0; }
+  ul, ol { margin: 0 0 8pt 0; padding-left: 16pt; }
+  li { margin-bottom: 2.5pt; }
+  strong { color: #111827; }
+  code { font-family: Consolas, "Courier New", monospace; font-size: 8.9pt; background: #eef1f8; padding: 1px 3px; border-radius: 3px; color: #312e81; }
+  pre.code {
+    font-family: Consolas, "Courier New", monospace; font-size: 8.3pt; line-height: 1.42;
+    background: #f7f8fc; border-left: 3px solid #4338ca; border-radius: 3px;
+    padding: 7pt 9pt; margin: 5pt 0 9pt 0; white-space: pre-wrap; color: #1e293b;
+    break-inside: avoid;
+  }
+  pre.code .cm { color: #6b7280; font-style: italic; }
+  pre.code b { color: #4338ca; }
+
+  /* ---------- capa ---------- */
+  .cover {
+    width: 210mm; height: 297mm; margin: 0; padding: 32mm 22mm 18mm 22mm;
+    background: linear-gradient(155deg, #0a0f22 0%, #16204a 46%, #2a1b3f 78%, #3b1d33 100%);
+    color: #eef2ff; position: relative; overflow: hidden;
+  }
+  .cover .tag { font-size: 8.5pt; letter-spacing: 2.6pt; text-transform: uppercase; color: #fbbf24; margin-bottom: 12mm; }
+  .cover h1 { font-size: 33pt; line-height: 1.1; margin: 0 0 7mm 0; color: #ffffff; font-weight: 700; letter-spacing: -0.5pt; }
+  .cover h1 span { color: #a5b4fc; display: block; font-size: 21pt; font-weight: 500; margin-top: 4mm; letter-spacing: 0; }
+  .cover .rule { width: 42mm; height: 3pt; background: #f59e0b; margin: 0 0 8mm 0; }
+  .cover .sub { font-size: 11.5pt; color: #c7d2fe; max-width: 130mm; margin-bottom: 12mm; }
+  .cover .pills { margin-bottom: 12mm; }
+  .cover .pill { display: inline-block; font-size: 8.6pt; border: 1px solid rgba(199,210,254,.45); color: #e0e7ff;
+                 padding: 2.6pt 7pt; border-radius: 20pt; margin: 0 4pt 5pt 0; }
+  .cover .meta { position: absolute; left: 22mm; right: 22mm; bottom: 20mm; font-size: 9pt; color: #a5b4fc;
+                 border-top: 1px solid rgba(165,180,252,.3); padding-top: 5mm; }
+  .cover .meta b { color: #ffffff; }
+  .cover .five { display: table; width: 100%; table-layout: fixed; margin-top: 3mm; }
+  .cover .five .c { display: table-cell; width: 20%; font-size: 8.4pt; color: #c7d2fe; padding-right: 5mm; vertical-align: top; }
+  .cover .five .c b { display: block; color: #fbbf24; font-size: 10pt; margin-bottom: 1.5mm; }
+  .cover-stats { display: table; width: 100%; margin-top: 12mm; table-layout: fixed; }
+  .cover-stats .cs { display: table-cell; width: 25%; border-left: 2px solid rgba(251,191,36,.7); padding-left: 5mm; }
+  .cover-stats .cs b { display: block; font-size: 24pt; color: #fbbf24; line-height: 1; margin-bottom: 1.5mm; }
+  .cover-stats .cs span { font-size: 7.8pt; letter-spacing: 1.2pt; text-transform: uppercase; color: #c7d2fe; }
+
+  /* ---------- estrutura ---------- */
+  h1.chap { page-break-before: always; font-size: 20pt; line-height: 1.15; color: #111a35; margin: 0 0 3mm 0; font-weight: 700; }
+  .chap-head { border-top: 3pt solid #111a35; padding-top: 4mm; margin-bottom: 6mm; }
+  .kicker { font-size: 8.2pt; letter-spacing: 2pt; text-transform: uppercase; color: #b45309; font-weight: 700; margin-bottom: 2.5mm; }
+  .who { font-size: 9pt; color: #4b5563; }
+  .who b { color: #111a35; }
+  h2.sec { font-size: 13pt; color: #1e1b4b; margin: 7mm 0 2.5mm 0; padding-bottom: 1.5mm; border-bottom: 1px solid #dbe0ec; font-weight: 700; page-break-after: avoid; }
+  h3.sub { font-size: 10.6pt; color: #312e81; margin: 5mm 0 1.5mm 0; font-weight: 700; page-break-after: avoid; }
+  .lead { font-size: 11pt; color: #334155; line-height: 1.5; margin-bottom: 5mm; }
+  .hr { height: 1px; background: #e5e7eb; margin: 6mm 0; }
+
+  /* ---------- blocos ---------- */
+  .say { background: #f6f4ff; border-left: 4pt solid #6d28d9; padding: 7pt 10pt; margin: 4mm 0 5mm 0; border-radius: 0 3px 3px 0; }
+  .say .lbl { display: block; font-size: 7.8pt; letter-spacing: 1.6pt; text-transform: uppercase; color: #6d28d9; font-weight: 700; margin-bottom: 2.5mm; }
+  .say p { font-size: 10.4pt; color: #1e1b4b; font-style: italic; margin-bottom: 4pt; }
+  .say p:last-child { margin-bottom: 0; }
+  .key { background: #111a35; color: #ffffff; padding: 7pt 11pt; border-radius: 3px; margin: 4mm 0 5mm 0; font-size: 10.4pt; break-inside: avoid; }
+  .key .lbl { display: block; font-size: 7.6pt; letter-spacing: 1.6pt; text-transform: uppercase; color: #fbbf24; font-weight: 700; margin-bottom: 1.5mm; }
+  .key em { color: #fde68a; font-style: normal; font-weight: 600; }
+  .warn { background: #fff7ed; border: 1px solid #fed7aa; border-left: 4pt solid #ea580c; padding: 6pt 9pt; margin: 4mm 0; border-radius: 0 3px 3px 0; font-size: 9.6pt; }
+  .warn b.t { display: block; color: #9a3412; font-size: 9pt; text-transform: uppercase; letter-spacing: 1pt; margin-bottom: 1.5mm; }
+  .tip { background: #ecfdf5; border: 1px solid #a7f3d0; border-left: 4pt solid #059669; padding: 6pt 9pt; margin: 4mm 0; border-radius: 0 3px 3px 0; font-size: 9.6pt; }
+  .tip b.t { display: block; color: #047857; font-size: 9pt; text-transform: uppercase; letter-spacing: 1pt; margin-bottom: 1.5mm; }
+  .q { font-weight: 700; color: #111a35; margin-top: 3.5mm; }
+  .a { color: #374151; margin-bottom: 2mm; }
+
+  table.grid { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm 0; font-size: 9pt; }
+  table.grid th { background: #eef1f8; color: #111a35; text-align: left; padding: 4.5pt 6pt; border: 1px solid #d5dbe9; font-size: 8.6pt; text-transform: uppercase; letter-spacing: .4pt; }
+  table.grid td { padding: 4pt 6pt; border: 1px solid #e2e7f1; vertical-align: top; }
+  table.grid tr:nth-child(even) td { background: #fafbfe; }
+  table.grid td.c { text-align: center; }
+  table.grid code { font-size: 8.2pt; }
+  .small { font-size: 8.6pt; color: #6b7280; }
+
+  .pcard { border: 1px solid #dbe0ec; border-radius: 4px; padding: 6pt 9pt; margin: 3mm 0; page-break-inside: avoid; }
+  .pcard .path { font-family: Consolas, monospace; font-size: 9.4pt; font-weight: 700; color: #1e1b4b; }
+  .pcard .role { font-size: 8.4pt; text-transform: uppercase; letter-spacing: 1pt; color: #b45309; font-weight: 700; margin: 1mm 0 2mm 0; }
+  .pcard ul { margin: 0 0 2pt 0; }
+  .pcard li { font-size: 9.3pt; }
+  .pcard .why { font-size: 9pt; color: #374151; border-top: 1px dashed #dbe0ec; margin-top: 2.5mm; padding-top: 2mm; }
+  .pcard .why b { color: #4338ca; }
+
+  .steps { counter-reset: st; margin: 3mm 0 5mm 0; }
+  .steps .st { position: relative; padding-left: 11mm; margin-bottom: 3mm; page-break-inside: avoid; }
+  .steps .st:before { counter-increment: st; content: counter(st); position: absolute; left: 0; top: 0;
+                      width: 7mm; height: 7mm; border-radius: 50%; background: #111a35; color: #fff;
+                      font-size: 9pt; font-weight: 700; text-align: center; line-height: 7mm; }
+  .steps .st b { color: #111a35; }
+
+  .toc { margin-top: 4mm; }
+  .toc .row { display: table; width: 100%; padding: 2.6mm 0; border-bottom: 1px dotted #d5dbe9; }
+  .toc .num { display: table-cell; width: 12mm; font-weight: 700; color: #b45309; font-size: 11pt; }
+  .toc .tt { display: table-cell; }
+  .toc .tt b { display: block; font-size: 10.5pt; color: #111a35; }
+  .toc .tt span { font-size: 8.8pt; color: #6b7280; }
+  .toc .min { display: table-cell; width: 22mm; text-align: right; font-size: 8.6pt; color: #4338ca; font-weight: 700; }
+
+  .tl { font-size: 8.6pt; font-family: Consolas, monospace; background: #f7f8fc; border: 1px solid #e2e7f1; padding: 7pt 9pt; white-space: pre; line-height: 1.45; break-inside: avoid; overflow: hidden; }
+  .closing { page-break-before: always; padding-top: 12mm; }
+  .close-title { font-size: 40pt; font-weight: 700; color: #111a35; margin: 2mm 0 1mm 0; letter-spacing: -1pt; line-height: 1; }
+  .close-sub { font-size: 10.5pt; color: #4b5563; margin-bottom: 10mm; }
+  .close-card { border-left: 4pt solid #4338ca; background: #f8f9fd; padding: 8pt 11pt; margin: 0 0 6mm 0; break-inside: avoid; }
+  .close-card .lbl { font-size: 8.4pt; text-transform: uppercase; letter-spacing: 1.3pt; color: #4338ca; font-weight: 700; margin-bottom: 2mm; }
+  .close-card p { margin: 0; font-size: 10pt; color: #1f2937; }
+  .close-foot { margin-top: 8mm; padding-top: 4mm; border-top: 1px solid #dbe0ec; }
+  .close-repo { font-size: 13pt; font-weight: 700; color: #b45309; margin-bottom: 2mm; }
+  .endnote { margin-top: 6mm; border-top: 1px solid #dbe0ec; padding-top: 4mm; font-size: 8.6pt; color: #6b7280; break-inside: avoid; }
+</style>
+</head>
+<body>
+
+<!-- ============================ CAPA ============================ -->
+<div class="cover">
+  <div class="tag">Apresentação acadêmica · 5 apresentadores</div>
+  <h1>Venda de Ingressos com Assento Marcado
+    <span>Roteiro completo, arquitetura e explicação de cada arquivo</span>
+  </h1>
+  <div class="rule"></div>
+  <div class="sub">Teatro com 300 assentos · reserva de 10 minutos · 100 requisições simultâneas no mesmo assento · uma única venda.
+  Guia de estudo e de fala: cada integrante tem seu capítulo, seu tempo e o código que precisa saber explicar.</div>
+  <div class="pills">
+    <span class="pill">Python 3.11+</span>
+    <span class="pill">FastAPI</span>
+    <span class="pill">SQLAlchemy</span>
+    <span class="pill">MySQL 8.4</span>
+    <span class="pill">Docker Compose</span>
+    <span class="pill">React + Vite</span>
+    <span class="pill">pytest</span>
+    <span class="pill">Locust</span>
+  </div>
+  <div class="cover-stats">
+    <div class="cs"><b>9</b><span>capítulos</span></div>
+    <div class="cs"><b>5</b><span>falas cronometradas</span></div>
+    <div class="cs"><b>25</b><span>arquivos explicados</span></div>
+    <div class="cs"><b>18</b><span>perguntas respondidas</span></div>
+  </div>
+  <div class="meta">
+    <div class="five">
+      <div class="c"><b>Pessoa 1</b>Problema e requisitos</div>
+      <div class="c"><b>Pessoa 2</b>Arquitetura e alternativas</div>
+      <div class="c"><b>Pessoa 3</b>Concorrência e expiração</div>
+      <div class="c"><b>Pessoa 4</b>Padrões, SOLID e pastas</div>
+      <div class="c"><b>Pessoa 5</b>Testes, frontend e demo</div>
+    </div>
+    <div style="margin-top:6mm">Repositório: <b>github.com/guilherme07O/projeto-teatro</b> &nbsp;·&nbsp; Duração total sugerida: <b>15 minutos</b> + perguntas</div>
+  </div>
+</div>
+
+<!-- ============================ SUMÁRIO ============================ -->
+<h1 class="chap">Como usar este roteiro</h1>
+<div class="chap-head">
+  <div class="kicker">Leia esta página antes de dividir as falas</div>
+  <p class="lead">Este documento tem duas camadas: <strong>o que falar</strong> (blocos roxos “Fala sugerida”, escritos para serem lidos quase literalmente) e <strong>o que saber</strong> (as seções técnicas, para responder qualquer pergunta do professor). O <strong>Capítulo 6</strong> é o dossiê arquivo por arquivo — é a parte que responde “explique este código”.</p>
+</div>
+
+<h2 class="sec">Divisão do tempo e dos papéis</h2>
+<table class="grid">
+  <thead><tr><th style="width:16mm">Cap.</th><th style="width:34mm">Quem</th><th>Tema</th><th style="width:20mm">Tempo</th><th style="width:38mm">Arquivos que abre</th></tr></thead>
+  <tbody>
+    <tr><td class="c">1</td><td><strong>Pessoa 1</strong></td><td>O problema, o que foi pedido e a visão geral da solução</td><td class="c">3 min</td><td><code>README.md</code></td></tr>
+    <tr><td class="c">2</td><td><strong>Pessoa 2</strong></td><td>Arquitetura, stack, fluxo de uma requisição e por que não usamos Redis nem job de varredura</td><td class="c">3 min</td><td><code>docker-compose.yml</code>, <code>docs/adr-001…</code></td></tr>
+    <tr><td class="c">3</td><td><strong>Pessoa 3</strong></td><td>O núcleo: bloqueio de linha, restrição UNIQUE e expiração preguiçosa (código linha a linha)</td><td class="c">4 min</td><td><code>models.py</code>, <code>repositories.py</code>, <code>services.py</code>, <code>expiration.py</code></td></tr>
+    <tr><td class="c">4</td><td><strong>Pessoa 4</strong></td><td>Padrões de projeto, SOLID, anatomia das pastas e testes automatizados</td><td class="c">3 min</td><td><code>interfaces.py</code>, <code>dependencies.py</code>, <code>tests/</code></td></tr>
+    <tr><td class="c">5</td><td><strong>Pessoa 5</strong></td><td>Frontend, demonstração ao vivo com 100 requisições e encerramento</td><td class="c">3 min</td><td><code>App.jsx</code>, <code>demo_concurrency.py</code></td></tr>
+    <tr><td class="c">6–9</td><td><strong>Todos</strong></td><td>Dossiê técnico, runbook da demo, perguntas da banca e plano B</td><td class="c">estudo</td><td>todo o projeto</td></tr>
+  </tbody>
+</table>
+
+<div class="tip"><b class="t">Regra de ouro</b>
+Quem fala abre <strong>o arquivo da sua parte</strong> no editor e aponta para a linha exata. O professor desta disciplina avalia entendimento: mostrar o código enquanto explica vale mais do que slide bonito. Nunca leia o código em voz alta — explique o <em>porquê</em> daquela linha existir.
+</div>
+
+<h2 class="sec">Sumário</h2>
+<div class="toc">
+  <div class="row"><div class="num">1</div><div class="tt"><b>O problema e o que foi pedido</b><span>Requisitos do enunciado, perguntas centrais e os números que provam a solução</span></div><div class="min">3 min</div></div>
+  <div class="row"><div class="num">2</div><div class="tt"><b>Arquitetura, stack e a decisão contra a alternativa</b><span>Por que FastAPI + MySQL + Docker; comparação com lock no Redis e com job de varredura</span></div><div class="min">3 min</div></div>
+  <div class="row"><div class="num">3</div><div class="tt"><b>O coração do sistema</b><span>SELECT ... FOR UPDATE, UNIQUE sobre coluna gerada, expiração preguiçosa — linha a linha</span></div><div class="min">4 min</div></div>
+  <div class="row"><div class="num">4</div><div class="tt"><b>Padrões de projeto, SOLID e anatomia das pastas</b><span>Repository, Strategy, injeção de dependência, DTO; cada arquivo e cada teste</span></div><div class="min">3 min</div></div>
+  <div class="row"><div class="num">5</div><div class="tt"><b>Frontend, demonstração e encerramento</b><span>Mapa de assentos, polling de 5 s, 100 requisições simultâneas e resposta final</span></div><div class="min">3 min</div></div>
+  <div class="row"><div class="num">6</div><div class="tt"><b>Dossiê: cada arquivo por dentro</b><span>Os 25 arquivos do projeto — papel, código, por que existe e o que responder</span></div><div class="min">estudo</div></div>
+  <div class="row"><div class="num">7</div><div class="tt"><b>Runbook da demonstração ao vivo</b><span>Pré-voo, ordem dos cliques, o que falar em cada tela, reset e cronômetro</span></div><div class="min">demo</div></div>
+  <div class="row"><div class="num">8</div><div class="tt"><b>Perguntas da banca (com respostas)</b><span>17 perguntas prováveis, incluindo as três que sempre aparecem</span></div><div class="min">estudo</div></div>
+  <div class="row"><div class="num">9</div><div class="tt"><b>Plano B, glossário e números de memória</b><span>Se algo falhar na hora; termos que não podem ser confundidos; o que citar de cabeça</span></div><div class="min">estudo</div></div>
+</div>
+
+<div class="warn"><b class="t">Se o tempo apertar</b>
+A ordem de corte é: capítulo 5 (frontend) → capítulo 4 (padrões) → capítulo 2 (alternativas). <strong>Nunca corte</strong> o capítulo 1 (problema) nem o capítulo 3 (concorrência + expiração) — são o coração da avaliação. A demo ao vivo vale mais que qualquer slide: se sobrar 1 minuto, use-o na demo, não em texto.</div>
+
+<!-- ============================ CAP 1 ============================ -->
+<h1 class="chap">1 · O problema e o que foi pedido</h1>
+<div class="chap-head">
+  <div class="kicker">Pessoa 1 · 3 minutos · abre o README</div>
+  <p class="lead">Objetivo desta fala: fazer a banca entender <strong>por que este problema é difícil</strong> antes de mostrar qualquer código. Quem começa bem controla o resto da apresentação.</p>
+</div>
+
+<h2 class="sec">1.1 Fala sugerida (2min30 de fala)</h2>
+<div class="say">
+  <span class="lbl">Fala sugerida — Pessoa 1</span>
+  <p>“Nosso projeto é a venda de ingressos com assento marcado para um teatro de 300 lugares. O desafio não é desenhar a tela: é garantir duas coisas que parecem simples e não são.</p>
+  <p>A primeira: <strong>dois usuários nunca podem comprar o mesmo assento</strong>, mesmo que os dois cliquem no mesmo lugar no mesmo milissegundo. A segunda: uma reserva dura 10 minutos; se a pessoa não pagar, o assento volta a ficar livre — <strong>e isso precisa acontecer sem um processo verificando o banco a cada segundo</strong>.</p>
+  <p>Essas duas exigências se atrapalham. Se eu controlo a concorrência ‘na aplicação’, com uma variável em memória, dois servidores ou duas requisições simultâneas passam pela verificação ao mesmo tempo. E se eu controlo a expiração com um job que varre a tabela de segundo em segundo, eu contrato justamente o que o enunciado proíbe.</p>
+  <p>Nossa solução trata as duas coisas <strong>no banco de dados</strong>: a exclusividade vem de um bloqueio de linha dentro de uma transação, reforçado por uma restrição de unicidade; a expiração vem de um campo de validade avaliado no momento do uso. Nos próximos minutos os colegas mostram onde isso está no código e provam com 100 requisições simultâneas: exatamente uma vende, as outras 99 recebem 409 Conflict.”</p>
+</div>
+
+<h2 class="sec">1.2 O enunciado destrinchado</h2>
+<p>Esta tabela é o mapa da apresentação inteira: cada requisito do trabalho, como foi atendido e <strong>onde provar</strong>. Decore a coluna do meio; a coluna da direita é o que você abre no editor.</p>
+<table class="grid">
+  <thead><tr><th style="width:52mm">O que o enunciado pede</th><th>Como atendemos</th><th style="width:52mm">Onde provar</th></tr></thead>
+  <tbody>
+    <tr><td>300 assentos, com estados de disponível, reservado e pago</td><td>Semeadura automática de 300 linhas na subida da API; estado derivado da reserva ativa do assento</td><td><code>main.py</code> (lifespan / <code>seed_seats</code>), <code>services.list_seats</code></td></tr>
+    <tr><td>Reserva temporária de 10 minutos</td><td>Coluna <code>expires_at</code> gravada na criação, com minutos configuráveis por ambiente</td><td><code>expiration.py</code>, <code>RESERVATION_MINUTES</code></td></tr>
+    <tr><td>Dois usuários nunca compram o mesmo assento</td><td>Transação + <code>SELECT … FOR UPDATE</code> + <code>UNIQUE</code> sobre a coluna gerada <code>active_seat_id</code></td><td><code>services.reserve</code>, <code>models.py</code></td></tr>
+    <tr><td>Expirar sem processo verificando o banco a cada segundo</td><td>Expiração preguiçosa: aplicada em leitura, reserva e pagamento; nenhum worker</td><td><code>expiration.py</code>, <code>services.list_seats</code></td></tr>
+    <tr><td>Concorrência real: 100 requisições simultâneas</td><td>Teste com 100 tarefas liberadas por um mesmo evento + script de demonstração</td><td><code>tests/test_concurrency.py</code>, <code>demo_concurrency.py</code></td></tr>
+    <tr><td>Teste de carga (Locust)</td><td>Cenário de 100 usuários disputando o mesmo assento, com 409 contado como sucesso</td><td><code>locustfile.py</code></td></tr>
+    <tr><td>Python + FastAPI + SQLAlchemy + MySQL; React no front; execução simples</td><td>Exatamente essa stack; MySQL sobe por <code>docker compose up -d</code></td><td><code>docker-compose.yml</code>, <code>backend/app/</code>, <code>frontend/</code></td></tr>
+  </tbody>
+</table>
+
+<h2 class="sec">1.3 As duas perguntas que a banca vai repetir</h2>
+<div class="pcard">
+  <div class="path">Pergunta 1 — Como garantir que dois usuários nunca comprem o mesmo assento?</div>
+  <div class="why"><b>Resposta curta:</b> a reserva acontece dentro de uma transação que bloqueia a linha do assento (<code>SELECT … FOR UPDATE</code>) antes de verificar e criar a reserva. Concorrentes do mesmo assento entram numa fila. Como barreira final, o banco recusa uma segunda reserva ativa pelo <code>UNIQUE</code>, e o perdedor recebe <strong>409</strong>.</div>
+</div>
+<div class="pcard">
+  <div class="path">Pergunta 2 — Como a reserva expira sem verificar o banco a cada segundo?</div>
+  <div class="why"><b>Resposta curta:</b> cada reserva guarda <code>expires_at</code>. Em vez de varrer a tabela, o sistema avalia a validade <strong>no momento em que alguém usa o assento</strong>: ao listar, ao tentar reservar, ao pagar. Se venceu, a própria operação marca <code>expired</code> e libera o assento. A expiração é um <em>fato derivado do tempo</em>, não um evento agendado.</div>
+</div>
+
+<h2 class="sec">1.4 Os números que provam (cite de memória)</h2>
+<table class="grid">
+  <thead><tr><th style="width:58mm">Evidência</th><th>Resultado</th><th style="width:44mm">Comando</th></tr></thead>
+  <tbody>
+    <tr><td>Requisições simultâneas no mesmo assento</td><td><strong>1 × 201 Created</strong> e <strong>99 × 409 Conflict</strong></td><td><code>python demo_concurrency.py --requests 100</code></td></tr>
+    <tr><td>Suíte completa no MySQL</td><td><strong>7 passed</strong> (6 regras + 1 concorrência real)</td><td><code>pytest -q</code> com <code>TEST_DATABASE_URL</code></td></tr>
+    <tr><td>Suíte no SQLite</td><td><strong>6 passed, 1 skipped</strong> (o teste de concorrência é pulado)</td><td><code>pytest -q</code></td></tr>
+    <tr><td>Carga com Locust (100 usuários)</td><td>957 requisições, <strong>0 falhas</strong>, ~300 ms de média</td><td><code>locust -f locustfile.py -u 100 -r 100</code></td></tr>
+    <tr><td>Assentos semeados</td><td><strong>300</strong>, todos disponíveis em banco limpo</td><td><code>GET /seats</code></td></tr>
+  </tbody>
+</table>
+
+<div class="warn"><b class="t">Erros que derrubam a nota (não cometa)</b>
+<strong>1.</strong> Dizer que “o Python controla” a concorrência — quem controla é o MySQL. <strong>2.</strong> Dizer que a expiração “roda sozinha” — ela roda quando alguém acessa. <strong>3.</strong> Chamar o 409 de erro/falha — é o comportamento correto do sistema. <strong>4.</strong> Dizer que usamos Redis (não usamos; foi a alternativa descartada, capítulo 2).</div>
+
+<div class="key"><span class="lbl">Frase de efeito (Pessoa 1)</span>
+“O assento não é vendido porque a aplicação lembrou de verificar: ele é vendido porque o <em>banco</em> não permite duas reservas ativas para o mesmo lugar.”</div>
+
+<!-- ============================ CAP 2 ============================ -->
+<h1 class="chap">2 · Arquitetura, stack e a decisão contra a alternativa</h1>
+<div class="chap-head">
+  <div class="kicker">Pessoa 2 · 3 minutos · abre docker-compose.yml e o ADR</div>
+  <p class="lead">Objetivo desta fala: mostrar que a arquitetura não é enfeite — cada peça existe porque resolve uma parte do problema. E provar que a alternativa (Redis) foi considerada e descartada com critério, não por desconhecimento.</p>
+</div>
+
+<h2 class="sec">2.1 Fala sugerida (2min30 de fala)</h2>
+<div class="say">
+  <span class="lbl">Fala sugerida — Pessoa 2</span>
+  <p>“A arquitetura tem quatro camadas e uma regra: <strong>a regra de negócio não conhece HTTP nem SQL</strong>. O React é só a interface. O FastAPI recebe a requisição e delega. O serviço decide — é ele que diz ‘reserve se estiver livre’. O repositório conversa com o banco e é o único lugar que escreve SQL. E o MySQL é onde a verdade mora: é ele que garante a exclusividade.</p>
+  <p>Escolhemos essa stack porque o enunciado pede bibliotecas vistas em sala — FastAPI, SQLAlchemy e MySQL — e porque o problema é <strong>transacional</strong>: envolve consistência entre duas tabelas, sob concorrência. Um banco relacional com transação e bloqueio de linha é exatamente a ferramenta para isso. O React entra porque o mapa de 300 assentos precisa refletir o estado real a cada 5 segundos.</p>
+  <p>Consideramos a alternativa mais óbvia, que é um <strong>lock distribuído no Redis</strong>: fazer <code>SET chave NX PX 10000</code> antes de reservar e liberar depois. Funciona, mas cria um segundo estado para manter sincronizado com o banco. Se o processo cair entre pegar o lock e gravar a reserva, o lock expira e outro usuário entra — e você precisa de mais mecanismos para não vender duas vezes. Ou seja: o Redis reduz a disputa, mas não dispensa a restrição no banco. Se a restrição no banco é obrigatória de qualquer forma, o lock no Redis vira complexidade sem garantia adicional.</p>
+  <p>A segunda alternativa era a expiração por <strong>job de varredura</strong>, um processo consultando o banco a cada segundo. Além de o enunciado proibir, isso cria carga constante, depende de relógio de um processo e atrasa a liberação. Trocamos por expiração preguiçosa, que é avaliada no exato momento em que o assento é usado.”</p>
+</div>
+
+<h2 class="sec">2.2 Por que cada peça — e o que foi descartado</h2>
+<table class="grid">
+  <thead><tr><th style="width:34mm">Peça</th><th style="width:40mm">Papel no sistema</th><th>Por que ela (e não outra)</th></tr></thead>
+  <tbody>
+    <tr><td><strong>FastAPI</strong></td><td>Servidor HTTP, validação de entrada, documentação automática</td><td>Valida o corpo com Pydantic antes de chegar na regra de negócio; gera o Swagger em <code>/docs</code>, útil na demonstração; é assíncrono e leve.</td></tr>
+    <tr><td><strong>SQLAlchemy</strong></td><td>Mapeamento objeto-relacional e controle de transação</td><td>Permite escrever <code>with_for_update()</code> sem SQL manual, mantém uma sessão única por requisição (unidade de trabalho) e converte violação de restrição em <code>IntegrityError</code>, que tratamos.</td></tr>
+    <tr><td><strong>MySQL 8.4</strong></td><td>Fonte de verdade e ponto de serialização</td><td>Suporta <code>SELECT … FOR UPDATE</code> de verdade (o SQLite ignora), colunas geradas <code>STORED</code> e <code>UNIQUE</code> sobre elas. É o componente que garante o requisito central.</td></tr>
+    <tr><td><strong>Docker Compose</strong></td><td>Sobe o banco com um comando</td><td>Reprodutibilidade: mesma versão do MySQL em qualquer máquina, com banco de teste criado por script. Sem “na minha máquina funciona”.</td></tr>
+    <tr><td><strong>React + Vite</strong></td><td>Mapa de assentos, reserva e pagamento</td><td>Estado derivado do servidor (polling de 5 s), componentes simples, sem biblioteca de estado — o escopo não pede.</td></tr>
+    <tr><td><strong>pytest</strong></td><td>Prova automatizada das regras</td><td>Mesmos testes em SQLite (rápido) e em MySQL (concorrência real), com trava que impede apontar para o banco de desenvolvimento.</td></tr>
+    <tr><td><strong>Locust</strong></td><td>Teste de carga exigido</td><td>100 usuários virtuais disputando o mesmo assento, com relatório de latência e taxa de erro.</td></tr>
+    <tr><td class="small">Descartado: Redis</td><td class="small">Lock distribuído com TTL</td><td class="small">Segundo estado a reconciliar; não dispensa a restrição no banco. Ver 2.4.</td></tr>
+    <tr><td class="small">Descartado: job de 1 s</td><td class="small">Varredura de reservas vencidas</td><td class="small">Proibido pelo enunciado; carga constante e atraso. Ver 2.5.</td></tr>
+    <tr><td class="small">Descartado: Alembic</td><td class="small">Migrations</td><td class="small">Escopo acadêmico: o schema é criado por <code>create_all</code> na subida. Evolução futura exigiria migrations.</td></tr>
+  </tbody>
+</table>
+
+<h2 class="sec">2.3 O caminho de um clique (decore esta sequência)</h2>
+<div class="tl">Clique no assento (React, App.jsx)
+   │  POST /api/reserve  {"seat_id": 42, "user_id": "user-1234"}
+   ▼
+Vite proxy (/api → http://localhost:8000)          vite.config.js
+   ▼
+FastAPI: reserve()                                 app/main.py
+   │  Pydantic valida ReserveRequest               app/schemas.py
+   ▼
+ReservationService.reserve()                       app/services.py
+   │  1. SELECT * FROM seats WHERE id=42 FOR UPDATE   ← trava a linha
+   │  2. SELECT … FROM reservations WHERE seat_id=42 AND status IN ('reserved','paid')
+   │  3. existe? → 409 Conflict (ou expira se venceu)
+   │  4. INSERT INTO reservations (seat_id, user_id, status, expires_at)  ← dispara o UNIQUE
+   │  5. COMMIT                                        ← libera o lock
+   ▼
+201 Created {id, status: "reserved", expires_at: "...Z"}
+   │
+   ▼
+React: mostra aviso, converte UTC para o fuso local, recarrega o mapa</div>
+
+<h3 class="sub">O que acontece com as outras 99 requisições</h3>
+<p>Elas param no passo 1, na fila do lock da linha do assento. Quando a vencedora faz <code>COMMIT</code>, a próxima entra, encontra a reserva ativa e sai com <code>409</code>. Cada transação dura poucos milissegundos, por isso o tempo médio medido no Locust ficou em torno de 300 ms com 100 usuários.</p>
+
+<h2 class="sec">2.4 Alternativa descartada nº 1 — lock distribuído no Redis</h2>
+<p>A ideia: antes de tocar no banco, o backend tenta adquirir uma chave por assento (<code>SET lock:seat:42 &lt;token&gt; NX PX 10000</code>). Quem consegue, faz a reserva; os demais são recusados imediatamente.</p>
+<div class="tl">SET lock:seat:42 token NX PX 10000   →  OK?  prossegue
+                                     →  nil? 409 imediato
+… grava a reserva …
+DEL lock:seat:42                      (idealmente via script Lua, comparando o token)</div>
+<table class="grid">
+  <thead><tr><th style="width:52mm">Critério</th><th>Redis como lock (descartado)</th><th>Lock no MySQL + UNIQUE (adotado)</th></tr></thead>
+  <tbody>
+    <tr><td>Fontes de verdade</td><td>Duas (Redis e MySQL) — precisam concordar</td><td>Uma (MySQL); a reserva e a garantia vivem na mesma transação</td></tr>
+    <tr><td>Se o processo cair no meio</td><td>Lock expira pelo TTL e outro entra; a reserva pode ter sido gravada pela metade → exige fencing token / reconciliação</td><td>A transação faz rollback; nenhum estado intermediário fica visível</td></tr>
+    <tr><td>Garantia contra dupla venda</td><td>Depende do TTL ser maior que o tempo de commit — hipótese frágil sob carga</td><td>Garantida pelo banco, independentemente do tempo</td></tr>
+    <tr><td>Componentes para operar</td><td>+1 serviço, +1 Docker, +1 configuração, +1 ponto de falha</td><td>Nenhum a mais</td></tr>
+    <tr><td>Latência por reserva</td><td>Ida e volta extra ao Redis</td><td>Só o banco</td></tr>
+    <tr><td>Quando valeria a pena</td><td>Muitas instâncias e contenção que o banco não absorve; mesmo assim a constraint continuaria necessária</td><td>Contenção é por assento (linha), não global — 300 assentos em paralelo</td></tr>
+  </tbody>
+</table>
+<div class="tip"><b class="t">Como explicar em uma frase</b>
+“Redis resolveria <em>onde</em> a disputa acontece, mas não <em>o que</em> impede a dupla venda. O que impede é a restrição no banco — então mantivemos só ela e o bloqueio de linha que já existe na transação.”</div>
+
+<h2 class="sec">2.5 Alternativa descartada nº 2 — job de varredura (polling)</h2>
+<p>A ideia: um processo a cada segundo executando <code>UPDATE reservations SET status='expired' WHERE status='reserved' AND expires_at &lt;= NOW()</code>.</p>
+<table class="grid">
+  <thead><tr><th style="width:52mm">Critério</th><th>Job de varredura (descartado)</th><th>Expiração preguiçosa (adotado)</th></tr></thead>
+  <tbody>
+    <tr><td>Exigência do enunciado</td><td><strong>Proibido</strong> (“sem processo verificando o banco a cada segundo”)</td><td>Atende: não existe varredura periódica</td></tr>
+    <tr><td>Carga no banco</td><td>1 consulta por segundo, para sempre — mesmo sem ninguém usando</td><td>Zero consultas extras: aproveita a operação que já estava acontecendo</td></tr>
+    <tr><td>Precisão da liberação</td><td>Até 1 s (ou o intervalo) de atraso</td><td>Exata: o assento é considerado livre no instante em que alguém o usa</td></tr>
+    <tr><td>Estado no banco</td><td>Sempre normalizado</td><td>Pode ficar <code>reserved</code> até o próximo acesso (trade-off aceito)</td></tr>
+    <tr><td>Risco de erro</td><td>Job duplicado em várias instâncias, clock skew</td><td>Nenhum processo extra para duplicar</td></tr>
+  </tbody>
+</table>
+<p><strong>O ponto que a banca costuma cobrar:</strong> “mas então uma reserva vencida continua <code>reserved</code> no banco?” Sim — e isso não afeta a venda: qualquer leitura, reserva ou pagamento aplica a expiração antes de decidir. Se um dia for necessário relatório “limpo”, um job de faxina pode ser adicionado como <em>housekeeping</em>, sem ser fonte de verdade.</p>
+
+<h2 class="sec">2.6 Alternativa nº 3 (bônus) — lock otimista com coluna de versão</h2>
+<p>Em vez de bloquear, cada linha teria <code>version</code>; a atualização só vale se a versão não mudou (<code>UPDATE … WHERE id=? AND version=?</code>), e quem perde tenta de novo. Para este problema é pior: 100 requisições na <strong>mesma linha</strong> geram 99 tentativas e novas leituras — tempestade de retries. O bloqueio pessimista transforma a disputa em fila, que é o desejável quando o recurso é um único assento.</p>
+
+<div class="key"><span class="lbl">Frase de efeito (Pessoa 2)</span>
+“Não usamos Redis porque a garantia que importa não é ‘quem chegou primeiro’, é ‘o banco não aceita duas reservas ativas’. E isso a gente resolve <em>na mesma transação</em>, sem mais um serviço para manter.”</div>
+
+<!-- ============================ CAP 3 ============================ -->
+<h1 class="chap">3 · O coração: concorrência e expiração</h1>
+<div class="chap-head">
+  <div class="kicker">Pessoa 3 · 4 minutos · abre models.py, repositories.py, services.py, expiration.py</div>
+  <p class="lead">Este é o capítulo que decide a nota. Fale devagar, mostre o código linha por linha e não pule o “por quê”. Você precisa saber explicar três coisas: como a linha é travada, por que existe a coluna gerada, e por que <code>flush</code> aparece antes do <code>insert</code>.</p>
+</div>
+
+<h2 class="sec">3.1 Fala sugerida (3min30 de fala)</h2>
+<div class="say">
+  <span class="lbl">Fala sugerida — Pessoa 3</span>
+  <p>“Vou mostrar as duas garantias por dentro. Começando pelo modelo: existem duas tabelas — <code>seats</code>, com os 300 assentos, e <code>reservations</code>, com o histórico. O assento não guarda status; quem diz o estado é a reserva ativa dele. Isso evita o clássico problema de ter o mesmo dado em dois lugares e os dois discordarem.</p>
+  <p>A segunda coluna que importa é <code>active_seat_id</code>. Ela é uma <strong>coluna gerada pelo banco</strong>: vale o número do assento quando a reserva está <code>reserved</code> ou <code>paid</code>, e vale <code>NULL</code> quando está <code>expired</code> ou <code>cancelled</code>. Sobre ela existe um <code>UNIQUE</code>. Traduzindo: o banco aceita, no máximo, uma linha por assento com valor preenchido — ou seja, uma reserva ativa. E aceita infinitas linhas com <code>NULL</code>, que são as reservas encerradas. É isso que permite o assento ser vendido de novo depois de expirar, quantas vezes forem necessárias.</p>
+  <p>Na hora de reservar, o serviço abre uma transação e faz <code>SELECT … FOR UPDATE</code> na linha do assento. O MySQL dá um lock exclusivo naquela linha: a segunda transação que tentar o mesmo assento <strong>espera</strong> a primeira terminar. Quem entra depois encontra a reserva ativa e recebe 409. Como o lock é por linha, dois usuários em assentos diferentes não se atrapalham.</p>
+  <p>Se por algum motivo duas transações passarem pela verificação — um bug futuro, um caminho que não use o repositório —, o <code>INSERT</code> da segunda viola o <code>UNIQUE</code>, o SQLAlchemy levanta <code>IntegrityError</code> e nós convertemos em 409 também. São duas camadas: o lock organiza a fila, a restrição garante a verdade.</p>
+  <p>Para expirar, não existe job. Cada reserva tem <code>expires_at</code>. Em <code>list_seats</code>, em <code>reserve</code> e em <code>pay</code>, antes de decidir qualquer coisa, chamamos a política de expiração: se a data já passou, a reserva vira <code>expired</code> — e a coluna gerada vira <code>NULL</code>, liberando o assento automaticamente.”</p>
+</div>
+
+<h2 class="sec">3.2 O modelo de dados, por dentro</h2>
+<pre class="code">seats                                   reservations
+─────────────────────────               ────────────────────────────────────────────────
+id            INT  PK                   id             INT  PK
+label         VARCHAR(20) UNIQUE        seat_id        INT  FK → seats.id   (index)
+                                        user_id        VARCHAR(100)
+300 linhas, semeadas                    status         VARCHAR(20)  reserved|paid|expired|cancelled
+na subida da API                        active_seat_id INT  GENERATED ALWAYS AS (
+                                             CASE WHEN status IN ('reserved','paid')
+                                                  THEN seat_id ELSE NULL END) STORED
+                                        expires_at     DATETIME NULL   (10 min após a reserva)
+                                        created_at     DATETIME NOT NULL
+                                        UNIQUE (active_seat_id)  ← uq_seat_active_reservation</pre>
+
+<h3 class="sub">A coluna gerada explicada com três linhas de exemplo</h3>
+<table class="grid">
+  <thead><tr><th>id</th><th>seat_id</th><th>status</th><th>active_seat_id (calculada)</th><th>O que o UNIQUE enxerga</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>42</td><td>reserved</td><td><strong>42</strong></td><td>ocupa o assento 42</td></tr>
+    <tr><td>2</td><td>42</td><td>expired</td><td><code>NULL</code></td><td>não ocupa nada</td></tr>
+    <tr><td>3</td><td>42</td><td>expired</td><td><code>NULL</code></td><td>não ocupa nada</td></tr>
+    <tr><td>4</td><td>42</td><td>paid</td><td><strong>42</strong></td><td><strong>conflito</strong> com a linha 1 → 409</td></tr>
+  </tbody>
+</table>
+<p>Repare: no MySQL e no SQLite, <code>NULL</code> não colide com <code>NULL</code> em um índice <code>UNIQUE</code>. É exatamente essa propriedade que faz a modelagem funcionar — sem ela, a segunda reserva expirada do mesmo assento seria recusada (foi o bug da primeira versão, descrito no ADR e coberto por teste de regressão).</p>
+<div class="warn"><b class="t">A pergunta que sempre vem: por que não UNIQUE(seat_id, status)?</b>
+Porque <code>(42,'expired')</code> colidiria com <code>(42,'expired')</code> da expiração anterior: o assento ficaria <strong>travado para sempre após o segundo vencimento</strong>. Trocamos a chave por uma coluna que só tem valor quando a reserva está ativa. O teste <code>test_seat_can_be_reused_after_repeated_expirations</code> reproduz o bug e prova a correção.</div>
+
+<h2 class="sec">3.3 O bloqueio de linha — repositories.py</h2>
+<pre class="code">def get_by_id_for_update(self, seat_id: int):
+    return self.db.execute(
+        select(Seat).where(Seat.id == seat_id).<b>with_for_update()</b>
+    ).scalar_one_or_none()</pre>
+<ul>
+  <li><code>with_for_update()</code> gera <code>SELECT … FOR UPDATE</code>: o InnoDB coloca um <strong>lock exclusivo de linha</strong> no registro do assento até o <code>COMMIT</code> ou <code>ROLLBACK</code>.</li>
+  <li>A segunda transação que pedir o mesmo <code>id</code> <strong>bloqueia</strong> (espera), não recebe erro. Se demorar além de <code>innodb_lock_wait_timeout</code> (50 s por padrão), aí sim ocorre timeout — por isso as transações aqui são curtas: nenhuma chamada de rede, nenhum cálculo pesado.</li>
+  <li><code>scalar_one_or_none()</code> devolve o assento ou <code>None</code>; <code>None</code> vira <code>NotFoundError</code> → HTTP 404.</li>
+  <li>Lock por linha = contenção <strong>por assento</strong>. Assento 7 e assento 8 são vendidos em paralelo.</li>
+</ul>
+<pre class="code">def get_active_for_seat(self, seat_id: int, for_update: bool = False):
+    stmt = select(Reservation).where(
+        Reservation.seat_id == seat_id,
+        Reservation.status.in_(["reserved", "paid"]),
+    )
+    if for_update:
+        stmt = stmt.<b>with_for_update()</b>
+    return self.db.execute(stmt).scalars().first()</pre>
+<p>O <code>for_update</code> é opcional de propósito: a listagem (<code>GET /seats</code>) lê sem travar ninguém; já a reserva trava também a reserva ativa, porque ela pode ser alterada para <code>expired</code> dentro da mesma transação.</p>
+
+<h2 class="sec">3.4 reserve(): o fluxo completo, linha a linha</h2>
+<pre class="code">def reserve(self, seat_id: int, user_id: str) -> Reservation:
+    now = utcnow()
+    try:
+        <span class="cm"># 1) bloqueia a linha do assento (serializa concorrentes do MESMO assento)</span>
+        seat = self.seats.get_by_id_for_update(seat_id)
+        if not seat:
+            raise NotFoundError("Assento não encontrado")          <span class="cm"># → 404</span>
+
+        <span class="cm"># 2) procura reserva ativa (e trava, se existir)</span>
+        active = self.reservations.get_active_for_seat(seat_id, for_update=True)
+        if active:
+            <span class="cm"># 3) expiração preguiçosa: quem encontra vencida, encerra</span>
+            if not self.expiration.expire_if_needed(active, now):
+                raise ConflictError("Assento indisponível")          <span class="cm"># → 409</span>
+            <span class="cm"># 4) libera o UNIQUE (active_seat_id vira NULL) ANTES do insert</span>
+            self.db.flush()
+
+        <span class="cm"># 5) cria a reserva com validade de 10 minutos</span>
+        reservation = Reservation(
+            seat_id=seat_id, user_id=user_id, status="reserved",
+            expires_at=self.expiration.expires_at(now), created_at=now,
+        )
+        self.reservations.add(reservation)
+        self.db.commit()                 <span class="cm"># 6) confirma e libera o lock</span>
+        self.db.refresh(reservation)     <span class="cm"># 7) traz id/created_at gerados</span>
+        return reservation
+    except DomainError:
+        self.db.rollback(); raise
+    except IntegrityError:
+        <span class="cm"># barreira final: o banco recusou a segunda reserva ativa</span>
+        self.db.rollback()
+        raise ConflictError("Assento indisponível")                  <span class="cm"># → 409</span></pre>
+<div class="steps">
+  <div class="st"><b>Passo 1 — travar</b> é a decisão de projeto: a verificação e a criação ficam dentro do mesmo lock, então ninguém “entra no meio”.</div>
+  <div class="st"><b>Passo 3 — expirar dentro do fluxo</b>: se a reserva venceu, ela vira <code>expired</code> e a operação <em>continua</em> (não retorna 409); o assento é do novo usuário.</div>
+  <div class="st"><b>Passo 4 — o flush é obrigatório</b>: a mudança para <code>expired</code> está só na sessão. Sem <code>flush</code>, o SQLAlchemy poderia emitir o <code>INSERT</code> antes do <code>UPDATE</code> → o <code>UNIQUE</code> ainda veria a reserva antiga e recusaria uma reserva legítima. O flush força o <code>UPDATE</code> primeiro, a coluna gerada vira <code>NULL</code> e o slot fica livre.</div>
+  <div class="st"><b>Rollback em qualquer erro</b>: sem isso a conexão volta ao pool com transação aberta e lock preso — um vazamento clássico.</div>
+  <div class="st"><b>IntegrityError → 409</b>: é a rede de segurança. Se o <code>INSERT</code> violar <code>uq_seat_active_reservation</code>, o usuário recebe o mesmo 409 de quem perdeu a fila.</div>
+</div>
+
+<h2 class="sec">3.5 pay(): a transição de estado</h2>
+<pre class="code">reservation = self.reservations.get_by_id_for_update(reservation_id)   <span class="cm"># trava a reserva</span>
+if not reservation:            raise NotFoundError(...)        <span class="cm"># 404</span>
+if reservation.user_id != user_id: raise ForbiddenError(...)   <span class="cm"># 403</span>
+if reservation.status == "paid": return reservation            <span class="cm"># idempotente: 200</span>
+if reservation.status != "reserved": raise ConflictError(...)  <span class="cm"># 409</span>
+if self.expiration.expire_if_needed(reservation, now):
+    self.db.commit(); raise ConflictError("Reserva expirada")  <span class="cm"># 409</span>
+
+reservation.status = "paid"
+reservation.expires_at = None        <span class="cm"># pago não expira mais</span>
+self.db.commit()</pre>
+<p>Três detalhes que mostram domínio: (a) pagar duas vezes não é erro — devolve a mesma reserva; (b) ao virar <code>paid</code>, <code>expires_at</code> fica <code>NULL</code>, mas <code>active_seat_id</code> continua preenchido, então o <code>UNIQUE</code> segue impedindo que outro compre; (c) pagar reserva vencida devolve 409 e libera o assento na mesma transação.</p>
+
+<h2 class="sec">3.6 Expiração preguiçosa — expiration.py</h2>
+<pre class="code">class LazyReservationExpirationPolicy:
+    def __init__(self, reservation_minutes: int | None = None):
+        self.reservation_minutes = reservation_minutes if reservation_minutes is not None \
+            else int(os.getenv("RESERVATION_MINUTES", "10"))
+
+    def is_expired(self, reservation, now) -> bool:
+        return bool(reservation.status == "reserved"
+                    and reservation.expires_at
+                    and reservation.expires_at &lt;= now)
+
+    def expires_at(self, now):  return now + timedelta(minutes=self.reservation_minutes)
+
+    def expire_if_needed(self, reservation, now) -> bool:
+        if self.is_expired(reservation, now):
+            reservation.status = "expired"     <span class="cm"># active_seat_id → NULL (gerada)</span>
+            return True
+        return False</pre>
+<table class="grid">
+  <thead><tr><th style="width:38mm">Quem chama</th><th>Quando</th><th>Efeito</th></tr></thead>
+  <tbody>
+    <tr><td><code>SeatService.list_seats</code></td><td>A cada <code>GET /seats</code> (o frontend chama a cada 5 s)</td><td>Normaliza as vencidas e o mapa mostra “disponível”</td></tr>
+    <tr><td><code>ReservationService.reserve</code></td><td>Ao tentar reservar um assento com reserva ativa</td><td>Se venceu, libera e a nova reserva é aceita (201)</td></tr>
+    <tr><td><code>ReservationService.pay</code></td><td>Ao tentar pagar</td><td>Se venceu, recusa o pagamento (409) e libera o assento</td></tr>
+  </tbody>
+</table>
+<p><strong>Não existe</strong> cron, <code>APScheduler</code>, thread, fila ou <code>sleep</code> consultando o banco. A expiração é uma função pura do tempo, avaliada sob demanda — por isso o requisito “sem processo verificando o banco a cada segundo” é atendido por construção.</p>
+
+<h2 class="sec">3.7 Os dois cenários de corrida (desenhe isso no quadro)</h2>
+<div class="tl"><b>SEM bloqueio (o que quase todo mundo faz)</b>
+T1: SELECT status → livre        T2: SELECT status → livre
+T1: INSERT reserva  ✔ commit     T2: INSERT reserva  ✘ UNIQUE
+                                 → 1 venda, 1 erro de integridade (409 se tratado)
+
+<b>COM bloqueio pessimista (nosso caso)</b>
+T1: SELECT … FOR UPDATE  ← lock   T2: SELECT … FOR UPDATE  ⏳ espera
+T1: INSERT + COMMIT              T2: retoma, encontra reserva ativa → 409 limpo
+→ 1 venda, 99 recusas educadas, nenhum erro de integridade em operação normal</div>
+<p>A restrição continua existindo como <strong>última barreira</strong>: mesmo que alguém insira uma reserva por fora da aplicação, o banco recusa a segunda reserva ativa. É o princípio de <em>defesa em profundidade</em>: duas camadas independentes, uma não confia na outra.</p>
+
+<h2 class="sec">3.8 Demonstração (30 s, ao vivo)</h2>
+<pre class="code">cd backend
+python demo_concurrency.py --host http://localhost:8000 --requests 100
+
+Assento: 1 | requisições simultâneas: 100
+  201: 1
+  409: 99
+Resultado: OK — exatamente uma reserva venceu e as demais receberam 409.</pre>
+<p>Diga, enquanto roda: <em>“as 100 saem juntas — o script usa uma barreira, não um laço. O resultado não depende de sorte: depende do lock.”</em></p>
+
+<div class="warn"><b class="t">Onde esta parte quebra</b>
+<strong>1.</strong> Rodar a demo em SQLite: <code>FOR UPDATE</code> é ignorado e o teste nem roda (por isso o <code>skipif</code>). <strong>2.</strong> Rodar duas vezes no mesmo assento: a segunda dá 100×409. Use <code>--seat</code> com outro assento ou recrie o banco. <strong>3.</strong> Explicar expiração como “job leve” — não existe job.</div>
+
+<div class="key"><span class="lbl">Frase de efeito (Pessoa 3)</span>
+“O lock resolve a <em>ordem</em>; o UNIQUE resolve a <em>verdade</em>. A expiração não é um evento agendado: é uma conta que o sistema faz quando alguém tenta usar o assento.”</div>
+
+<!-- ============================ CAP 4 ============================ -->
+<h1 class="chap">4 · Padrões de projeto, SOLID e anatomia das pastas</h1>
+<div class="chap-head">
+  <div class="kicker">Pessoa 4 · 3 minutos · abre interfaces.py, dependencies.py e a pasta tests/</div>
+  <p class="lead">Objetivo: mostrar que a separação em arquivos não é estética. Cada pasta existe para permitir uma mudança específica sem quebrar o resto — e você deve saber citar essa mudança.</p>
+</div>
+
+<h2 class="sec">4.1 Fala sugerida (2min30 de fala)</h2>
+<div class="say">
+  <span class="lbl">Fala sugerida — Pessoa 4</span>
+  <p>“Nós seguimos SOLID, mas o que importa não é o nome: é o efeito. A regra de negócio está em <code>services.py</code>, o acesso a dados em <code>repositories.py</code>, a política de expiração em <code>expiration.py</code> e as rotas HTTP em <code>main.py</code>. O serviço não sabe o que é HTTP, não sabe qual banco é, e não sabe como a expiração é calculada — ele só conhece <strong>contratos</strong>.</p>
+  <p>Esses contratos estão em <code>interfaces.py</code>, escritos com <code>typing.Protocol</code>: são interfaces estruturais, sem herança. Quem monta as peças é <code>dependencies.py</code>, o <em>composition root</em>: ele escolhe <code>SqlAlchemySeatRepository</code>, <code>LazyReservationExpirationPolicy</code> e injeta no serviço via <code>Depends</code> do FastAPI.</p>
+  <p>Isso nos dá três propriedades concretas. Primeiro: trocar a política de expiração — de 10 minutos fixos para, digamos, um valor por evento — é criar uma classe nova que cumpra o contrato, sem tocar no serviço. Segundo: os testes trocam o banco inteiro (SQLite ou MySQL) sem mudar uma linha de regra de negócio. Terceiro: o erro de domínio nasce no serviço e vira status HTTP em um único lugar, no <code>main.py</code> — o serviço nunca escreve <code>409</code>.</p>
+  <p>Sobre os padrões: usamos <strong>Repository</strong> para isolar o SQL, <strong>Strategy</strong> para a expiração, <strong>DTO</strong> com Pydantic para a borda, <strong>Transaction Script</strong> no serviço — cada caso de uso é uma transação — e <strong>injeção de dependência</strong> para montar tudo. O que não fizemos, e é bom dizer: não usamos um framework de DI nem um ORM com Active Record; mantivemos o escopo do que foi visto em sala.”</p>
+</div>
+
+<h2 class="sec">4.2 Padrões de projeto usados (e onde estão)</h2>
+<table class="grid">
+  <thead><tr><th style="width:40mm">Padrão</th><th style="width:40mm">Arquivo</th><th>O que resolve aqui</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Repository</strong></td><td><code>repositories.py</code> + <code>interfaces.py</code></td><td>Toda consulta SQL fica em um lugar. O serviço chama <code>get_by_id_for_update</code> sem saber que existe <code>FOR UPDATE</code>. Trocar o banco = trocar o repositório.</td></tr>
+    <tr><td><strong>Strategy</strong></td><td><code>expiration.py</code> + <code>ExpirationPolicy</code></td><td>A “regra de quando expira” é uma família de algoritmos. Hoje: janela fixa de 10 min, preguiçosa. Amanhã: TTL do banco, sem expiração em testes, expiração por evento.</td></tr>
+    <tr><td><strong>Injeção de dependência / Composition Root</strong></td><td><code>dependencies.py</code></td><td>Um único lugar decide quais implementações concretas existem. As rotas pedem <code>Depends(get_reservation_service)</code> e não constroem nada.</td></tr>
+    <tr><td><strong>DTO (Data Transfer Object)</strong></td><td><code>schemas.py</code></td><td>O formato da API é declarado e validado na borda (Pydantic). O modelo do banco não vaza para o cliente.</td></tr>
+    <tr><td><strong>Transaction Script</strong></td><td><code>services.py</code></td><td>Cada caso de uso (<code>reserve</code>, <code>pay</code>, <code>list_seats</code>) é um roteiro transacional explícito: abrir, verificar, alterar, confirmar ou reverter.</td></tr>
+    <tr><td><strong>Erros de domínio + tradução</strong></td><td><code>exceptions.py</code> → <code>main.py</code></td><td>O serviço lança <code>ConflictError</code>; o <code>main.py</code> traduz para HTTP 409. Uma mudança de contrato HTTP não mexe na regra.</td></tr>
+    <tr><td><strong>Lifespan / bootstrap</strong></td><td><code>main.py</code></td><td>Na subida: cria tabelas e semeia 300 assentos. Sem script manual, sem passo esquecido na apresentação.</td></tr>
+    <tr><td><strong>Ports &amp; Adapters (leve)</strong></td><td><code>interfaces.py</code> (porta) + <code>repositories.py</code> (adaptador)</td><td>O contrato é do domínio; SQLAlchemy é detalhe de infraestrutura plugado por trás dele.</td></tr>
+  </tbody>
+</table>
+<p><strong>O que deliberadamente não usamos:</strong> microsserviços (um processo basta), CQRS/Event Sourcing (não há requisito de auditoria por evento), filas (nada é assíncrono de verdade) e cache (o dado precisa ser o mais atual possível). Cada um adicionaria peças sem responder a nenhuma das duas perguntas do enunciado.</p>
+
+<h2 class="sec">4.3 SOLID letra por letra, com prova no código</h2>
+<table class="grid">
+  <thead><tr><th style="width:8mm">L</th><th style="width:38mm">Princípio</th><th>Como aparece no projeto</th><th style="width:46mm">Teste mental (“e se…”)</th></tr></thead>
+  <tbody>
+    <tr><td class="c"><strong>S</strong></td><td>Responsabilidade única</td><td><code>main.py</code> só roteia e traduz erro; <code>services.py</code> decide; <code>repositories.py</code> consulta; <code>expiration.py</code> calcula validade; <code>schemas.py</code> define contrato</td><td>“…eu trocar FastAPI por Flask?” Só <code>main.py</code> muda.</td></tr>
+    <tr><td class="c"><strong>O</strong></td><td>Aberto/fechado</td><td>Nova política de expiração = nova classe que implementa <code>ExpirationPolicy</code>; serviço não muda</td><td>“…eu quiser 15 min por tipo de evento?” Nova classe, zero alteração no serviço.</td></tr>
+    <tr><td class="c"><strong>L</strong></td><td>Substituição de Liskov</td><td>Qualquer objeto que cumpra o Protocol pode entrar: real, fake de teste, política “nunca expira”</td><td>“…eu injetar uma política falsa nos testes?” Funciona, porque o contrato é o mesmo.</td></tr>
+    <tr><td class="c"><strong>I</strong></td><td>Segregação de interfaces</td><td>Três contratos pequenos (<code>SeatRepository</code>, <code>ReservationRepository</code>, <code>ExpirationPolicy</code>) em vez de um “IGerenciador” gigante</td><td>“…eu precisar só listar assentos?” Dependo de <code>SeatRepository</code>, não do resto.</td></tr>
+    <tr><td class="c"><strong>D</strong></td><td>Inversão de dependência</td><td>Serviços recebem <code>SeatRepository</code>/<code>ReservationRepository</code>/<code>ExpirationPolicy</code> (abstrações); as classes concretas são escolhidas em <code>dependencies.py</code></td><td>“…eu trocar MySQL por Postgres?” Repositório novo, serviço intacto.</td></tr>
+  </tbody>
+</table>
+<div class="tip"><b class="t">Transparência que ganha ponto</b>
+Diga você mesmo a limitação: “nossos serviços recebem também a <code>Session</code> do SQLAlchemy, porque o caso de uso precisa controlar a fronteira transacional — o lock e o insert têm que estar no mesmo <code>commit</code>. Isso é uma concessão pragmática ao ORM; o isolamento total exigiria uma Unit of Work própria, que seria over-engineering no escopo.”</div>
+
+<h2 class="sec">4.4 Anatomia das pastas — o que cada uma responde</h2>
+<pre class="code">projeto-teatro/
+├── docker-compose.yml          <span class="cm"># infraestrutura: MySQL 8.4, volume, healthcheck, init</span>
+├── docker/mysql-init/01-test-database.sql   <span class="cm"># cria teatro_test (isolamento dos testes)</span>
+├── backend/
+│   ├── requirements.txt        <span class="cm"># dependências fixadas</span>
+│   ├── .env.example            <span class="cm"># modelo de configuração (o .env real não vai para o Git)</span>
+│   ├── app/
+│   │   ├── database.py         <span class="cm"># engine, sessão, Base, get_db (fronteira com o banco)</span>
+│   │   ├── timeutils.py        <span class="cm"># UTC sem tzinfo (compatível com MySQL e SQLite)</span>
+│   │   ├── models.py           <span class="cm"># tabelas: Seat, Reservation, coluna gerada</span>
+│   │   ├── schemas.py          <span class="cm"># DTOs de entrada/saída (Pydantic)</span>
+│   │   ├── exceptions.py       <span class="cm"># erros de domínio (sem HTTP)</span>
+│   │   ├── interfaces.py       <span class="cm"># contratos (Protocol) — o domínio define</span>
+│   │   ├── repositories.py     <span class="cm"># SQL: os únicos SELECT/INSERT da aplicação</span>
+│   │   ├── expiration.py       <span class="cm"># política de expiração (Strategy)</span>
+│   │   ├── services.py         <span class="cm"># casos de uso e fronteira transacional</span>
+│   │   ├── dependencies.py     <span class="cm"># composition root (injeção)</span>
+│   │   └── main.py             <span class="cm"># rotas, CORS, lifespan, tradução de erro → HTTP</span>
+│   ├── tests/                  <span class="cm"># conftest + 6 regras + concorrência real</span>
+│   ├── demo_concurrency.py     <span class="cm"># 100 requisições simultâneas determinísticas</span>
+│   └── locustfile.py           <span class="cm"># carga com 100 usuários virtuais</span>
+├── frontend/
+│   ├── vite.config.js          <span class="cm"># proxy /api → backend, sem CORS na prática</span>
+│   └── src/App.jsx             <span class="cm"># mapa, reserva, pagamento, polling de 5 s</span>
+└── docs/                       <span class="cm"># ADR, spec da API, roteiro e checklist</span></pre>
+<h3 class="sub">Por que não tudo em um arquivo só?</h3>
+<table class="grid">
+  <thead><tr><th style="width:52mm">Se estivesse tudo no main.py</th><th>Com a separação atual</th></tr></thead>
+  <tbody>
+    <tr><td>~300 linhas em um arquivo, rota + SQL + regra + erro misturados</td><td>Arquivos de 20 a 130 linhas, cada um com um motivo para mudar</td></tr>
+    <tr><td>Testar a regra exigiria subir HTTP</td><td>O teste troca o banco por SQLite/MySQL e chama a mesma regra</td></tr>
+    <tr><td>Mudar o banco exigiria editar todos os endpoints</td><td>Só o repositório muda</td></tr>
+    <tr><td>Erro de negócio viraria <code>HTTPException</code> espalhado</td><td>Um único tradutor em <code>main.py</code></td></tr>
+  </tbody>
+</table>
+
+<h2 class="sec">4.5 Os testes — 6 regras + 1 concorrência real</h2>
+<table class="grid">
+  <thead><tr><th style="width:62mm">Teste</th><th>O que ele prova</th><th style="width:22mm">Roda em</th></tr></thead>
+  <tbody>
+    <tr><td><code>test_reserve_seat_success</code></td><td>Reserva devolve 201 com <code>status=reserved</code> e os dados corretos</td><td class="c">SQLite + MySQL</td></tr>
+    <tr><td><code>test_cannot_reserve_same_seat_twice</code></td><td>A segunda tentativa recebe <strong>409</strong></td><td class="c">SQLite + MySQL</td></tr>
+    <tr><td><code>test_pay_confirms_reservation</code></td><td>Pagamento vira <code>paid</code> e o assento continua indisponível</td><td class="c">SQLite + MySQL</td></tr>
+    <tr><td><code>test_pay_rejects_another_user</code></td><td>Outro usuário pagando a reserva alheia recebe <strong>403</strong></td><td class="c">SQLite + MySQL</td></tr>
+    <tr><td><code>test_expired_reservation_becomes_available</code></td><td>Reserva vencida libera o assento na próxima leitura e permite nova reserva</td><td class="c">SQLite + MySQL</td></tr>
+    <tr><td><code>test_seat_can_be_reused_after_repeated_expirations</code></td><td><strong>Regressão:</strong> três ciclos de expiração no mesmo assento — todos funcionam (o bug do <code>UNIQUE(seat_id,status)</code>)</td><td class="c">SQLite + MySQL</td></tr>
+    <tr><td><code>test_100_requisicoes_simultaneas_apenas_uma_vence</code></td><td><strong>1×201 e 99×409</strong> com 100 tarefas liberadas no mesmo instante</td><td class="c">só MySQL</td></tr>
+  </tbody>
+</table>
+<h3 class="sub">conftest.py — o que ele resolve (e a trava de segurança)</h3>
+<ul>
+  <li><code>TEST_DATABASE_URL</code> padrão é SQLite em memória; para MySQL, define-se a variável de ambiente.</li>
+  <li><strong>Trava:</strong> se a URL for MySQL e o banco não terminar em <code>_test</code>, o teste <em>aborta</em> com mensagem. Motivo: o fixture faz <code>drop_all</code> + <code>create_all</code> e semeia 10 assentos — apontar para <code>teatro</code> apagaria os 300 assentos de desenvolvimento.</li>
+  <li><code>StaticPool</code> no SQLite (mesma conexão em memória); pool de 20 + 40 no MySQL, dimensionado para as 100 requisições simultâneas.</li>
+  <li>O fixture injeta o engine de teste em <strong>dois</strong> módulos (<code>database</code> e <code>main</code>), porque o <code>main</code> importou <code>engine</code>/<code>SessionLocal</code> diretamente — detalhe honesto que mostra leitura de código.</li>
+  <li><code>dependency_overrides</code> troca o <code>get_db</code> real pelo de teste: o app roda de verdade, sem banco de produção.</li>
+</ul>
+<h3 class="sub">test_concurrency.py — como as 100 saem juntas</h3>
+<pre class="code">pytestmark = pytest.mark.skipif(TEST_DATABASE_URL.startswith("sqlite"),
+    reason="Concorrência real exige MySQL (o SQLite ignora SELECT ... FOR UPDATE)")
+
+gate = asyncio.Event()
+async def fire(index):
+    await gate.wait()                 <span class="cm"># todas param aqui…</span>
+    return (await api.post("/reserve", json={"seat_id": 1, "user_id": f"user-{index}"})).status_code
+
+tasks = [asyncio.create_task(fire(i)) for i in range(100)]
+await asyncio.sleep(0.2)              <span class="cm"># …e ficam prontas</span>
+gate.set()                            <span class="cm"># disparo simultâneo</span>
+codes = collections.Counter(await asyncio.gather(*tasks))</pre>
+<p>A barreira (<code>Event</code>) é o que torna o teste honesto: sem ela as requisições sairiam em sequência e não provariam nada. O transporte é <code>ASGITransport</code>, então a aplicação roda em processo, sem servidor HTTP no meio.</p>
+
+<div class="key"><span class="lbl">Frase de efeito (Pessoa 4)</span>
+“A separação existe para uma mudança concreta: trocar o banco, trocar a política de expiração ou trocar o framework HTTP — cada uma mexe <em>em um arquivo só</em>.”</div>
+
+<!-- ============================ CAP 5 ============================ -->
+<h1 class="chap">5 · Frontend, demonstração e encerramento</h1>
+<div class="chap-head">
+  <div class="kicker">Pessoa 5 · 3 minutos · abre App.jsx e roda a demo</div>
+  <p class="lead">Objetivo: fechar a história conectando a tela ao backend e provando o requisito principal com o comando que o professor pediu. Termine com as duas respostas do enunciado em uma frase cada.</p>
+</div>
+
+<h2 class="sec">5.1 Fala sugerida (2min30 de fala)</h2>
+<div class="say">
+  <span class="lbl">Fala sugerida — Pessoa 5</span>
+  <p>“O frontend é React com Vite e tem uma decisão deliberada: <strong>ele não guarda estado de assento</strong>. O servidor é a única fonte de verdade; a tela só desenha o que recebeu. A cada 5 segundos ela refaz <code>GET /seats</code>. Se outro usuário reservou, o assento fica laranja sozinho; se a reserva expirou, ele volta a verde — a tela não decide nada disso.</p>
+  <p>São 300 botões. Verde é disponível, laranja é reservado e azul é pago. Clicar num verde chama <code>POST /reserve</code>; clicar num laranja chama <code>POST /pay</code>. Se o backend responder 409, mostramos a mensagem real que veio dele — não inventamos um texto genérico. E o horário de expiração vem do servidor em UTC e é convertido para o fuso do navegador, então não existe diferença de relógio entre máquina e servidor.</p>
+  <p>Para a demonstração, temos duas ferramentas. O <strong>Locust</strong>, que é o teste de carga pedido no enunciado: 100 usuários virtuais martelando o mesmo assento. E o <code>demo_concurrency.py</code>, que é determinístico: ele abre as 100 conexões, segura todas numa barreira e dispara no mesmo instante — é a prova mais forte.</p>
+  <p>Nós ajustamos o Locust para tratar <strong>201 e 409 como sucesso</strong>: os dois são resultados corretos de uma disputa. Se aparecer qualquer outro código, aí sim é falha. Sem esse ajuste, o relatório mostrava 99% de ‘erro’ num comportamento perfeito.</p>
+  <p>Fechando: a exclusividade é garantida por transação com bloqueio de linha e restrição de unicidade no banco; a expiração é preguiçosa, calculada no momento do uso. São as duas respostas do enunciado, e as duas estão no banco, não na sorte.”</p>
+</div>
+
+<h2 class="sec">5.2 App.jsx por dentro</h2>
+<table class="grid">
+  <thead><tr><th style="width:44mm">Trecho</th><th>O que faz</th><th style="width:52mm">Por que assim</th></tr></thead>
+  <tbody>
+    <tr><td><code>const API = '/api'</code></td><td>Todas as chamadas passam pelo proxy do Vite</td><td>Sem CORS no dia a dia e sem URL fixa no código: o proxy decide o destino</td></tr>
+    <tr><td><code>useState</code> (seats, userId, notice, loading)</td><td>Estado local mínimo: a lista, o identificador do usuário e o aviso</td><td>Estado do assento é do servidor; a tela só espelha</td></tr>
+    <tr><td><code>loadSeats(silent)</code></td><td><code>GET /seats</code>; o parâmetro evita piscar “Atualizando…” no polling</td><td>UX: polling silencioso não atrapalha o clique</td></tr>
+    <tr><td><code>useEffect</code> + <code>setInterval(…, 5000)</code></td><td>Carrega ao montar e a cada 5 s; limpa o timer no unmount</td><td>Polling simples atende o escopo; WebSocket seria mais peça sem requisito</td></tr>
+    <tr><td><code>reserve(seat)</code> / <code>pay(seat)</code></td><td><code>POST /reserve</code> e <code>POST /pay</code>; em erro, exibe <code>data.detail</code></td><td>A mensagem vem do backend: uma única redação de erro no sistema</td></tr>
+    <tr><td><code>handleSeatClick</code></td><td>Verde → reserva; laranja → paga; azul → nada</td><td>Uma interação só, sem menu</td></tr>
+    <tr><td><code>useMemo(summary)</code></td><td>Conta disponíveis/reservados/pagos em uma passada</td><td>Evita recalcular a cada render</td></tr>
+    <tr><td><code>formatExpiry</code></td><td><code>toLocaleTimeString('pt-BR')</code> sobre a data UTC</td><td>UTC viaja; local é apresentação</td></tr>
+  </tbody>
+</table>
+<pre class="code"><span class="cm">// vite.config.js — o proxy que faz o front falar com o back sem CORS no desenvolvimento</span>
+proxy: {
+  '/api': { target: backendTarget, changeOrigin: true,
+            rewrite: (path) => path.replace(/^\/api/, '') }
+}
+<span class="cm">// backendTarget = process.env.VITE_API_TARGET || 'http://localhost:8000'</span></pre>
+<p>Paleta do mapa (styles.css): <code>--available: #22c55e</code> (verde), <code>--reserved: #f59e0b</code> (âmbar), <code>--paid: #6366f1</code> (azul). O assento reservado mostra o horário de expiração dentro do próprio botão — é a reserva de 10 minutos visível na tela.</p>
+
+<h2 class="sec">5.3 Os dois instrumentos de demonstração</h2>
+<table class="grid">
+  <thead><tr><th style="width:46mm">Ferramenta</th><th>Como funciona</th><th style="width:44mm">Para que serve</th></tr></thead>
+  <tbody>
+    <tr><td><code>locustfile.py</code></td><td><code>HttpUser</code> com <code>wait_time</code> de 0,1 a 0,5 s, 100 usuários, todos no mesmo <code>SEAT_ID</code>; <code>catch_response</code> marca 201/409 como sucesso</td><td>Teste de carga exigido; mostra latência e throughput</td></tr>
+    <tr><td><code>demo_concurrency.py</code></td><td><code>asyncio.Event</code> como barreira: abre as 100 conexões, espera, dispara juntas; imprime o <code>Counter</code> de status</td><td>Prova determinística: 1×201 e 99×409, sempre</td></tr>
+  </tbody>
+</table>
+<div class="warn"><b class="t">Cuidado ao explicar o Locust</b>
+Ele mede <strong>carga</strong>, não exclusividade: as requisições saem distribuídas no tempo. Quem prova “as 100 ao mesmo tempo” é o <code>demo_concurrency.py</code> e o teste <code>test_concurrency.py</code>. Diga isso antes que o professor pergunte.</div>
+
+<h2 class="sec">5.4 Encerramento (30 s) — decore</h2>
+<div class="say">
+  <span class="lbl">Fala sugerida — Pessoa 5, fechamento</span>
+  <p>“Respondendo às duas perguntas do enunciado. <strong>Como garantir que dois usuários nunca comprem o mesmo assento?</strong> A reserva roda dentro de uma transação que bloqueia a linha do assento com <code>SELECT … FOR UPDATE</code>; concorrentes entram na fila, e o banco ainda impõe um <code>UNIQUE</code> sobre as reservas ativas como última barreira. Quem perde recebe 409 — nas 100 requisições simultâneas, exatamente uma venceu.</p>
+  <p><strong>Como a reserva expira sem verificar o banco a cada segundo?</strong> Cada reserva carrega <code>expires_at</code>, e a validade é avaliada no momento do uso — listar, reservar ou pagar. Não existe job, não existe polling. O assento volta a ficar livre no instante em que alguém precisa dele.</p>
+  <p>O repositório está no GitHub, com o código, os testes, a demonstração e a documentação de decisão. Obrigado.”</p>
+</div>
+<div class="tip"><b class="t">Último detalhe que impressiona</b>
+Se sobrar tempo, mostre <code>GET /docs</code> (Swagger) e execute um <code>/reserve</code> manual ali, com o 409 aparecendo. É rápido e mostra que a API é documentada e testável sem o frontend.</div>
+
+<!-- ============================ CAP 6 ============================ -->
+<h1 class="chap">6 · Dossiê: cada arquivo por dentro</h1>
+<div class="chap-head">
+  <div class="kicker">Capítulo de estudo — todos devem ler o seu e o dos colegas</div>
+  <p class="lead">Aqui está o projeto inteiro, arquivo por arquivo: <strong>o que é</strong>, <strong>o que tem dentro</strong>, <strong>por que está assim</strong> e <strong>o que responder</strong> se apontarem para ele. Sugestão de leitura na ordem em que o código “acontece”: <code>database → models → repositories → expiration → services → interfaces/dependencies → main</code>.</p>
+</div>
+
+<h2 class="sec">6.1 Infraestrutura e configuração</h2>
+
+<div class="pcard">
+  <div class="path">docker-compose.yml</div>
+  <div class="role">Sobe o banco — é o único serviço do Compose</div>
+  <ul>
+    <li><code>image: mysql:8.4</code> com <code>container_name: teatro-mysql</code>: versão fixa, ambiente reprodutível.</li>
+    <li><code>MYSQL_DATABASE: teatro</code> cria o banco de desenvolvimento; <code>app/app</code> é o usuário da aplicação (não usamos root).</li>
+    <li><code>ports: "${MYSQL_PORT:-3306}:3306"</code> — padrão 3306; a variável permite trocar de porta sem editar o arquivo (foi como rodamos na 3307 com um MySQL nativo ocupando a 3306).</li>
+    <li><code>volumes: mysql_data:/var/lib/mysql</code> → os dados sobrevivem a <code>down</code>; <code>down -v</code> apaga o volume (reset da demo).</li>
+    <li>Monta <code>./docker/mysql-init</code> em <code>/docker-entrypoint-initdb.d:ro</code> (somente leitura) — roda os <code>.sql</code> só na primeira inicialização.</li>
+    <li><code>healthcheck</code> com <code>mysqladmin ping</code> a cada 5 s, 20 tentativas: o <code>STATUS</code> vira <code>healthy</code>, e é isso que confirma “banco pronto” antes de subir a API.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> um único comando entrega o banco com os dois databases e o usuário certo. O backend não está no Compose de propósito: rodar com <code>uvicorn --reload</code> no terminal deixa o ciclo de desenvolvimento e a leitura de logs mais simples para a apresentação.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">docker/mysql-init/01-test-database.sql</div>
+  <div class="role">Cria o banco de testes separado</div>
+  <ul>
+    <li><code>CREATE DATABASE IF NOT EXISTS teatro_test</code> com <code>utf8mb4</code>.</li>
+    <li><code>GRANT ALL PRIVILEGES ON teatro_test.* TO 'app'@'%'</code> — o mesmo usuário da aplicação, sem privilégio no banco de desenvolvimento além do necessário.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> o <code>conftest.py</code> executa <code>DROP TABLE</code>/<code>CREATE TABLE</code>. Se os testes apontassem para <code>teatro</code>, apagariam os 300 assentos. Separar em dois bancos é o que permite testar sem medo — e ainda há uma trava em código que exige o sufixo <code>_test</code>.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/.env.example &nbsp;(e o .env real, fora do Git)</div>
+  <div class="role">Configuração por ambiente</div>
+  <ul>
+    <li><code>DATABASE_URL=mysql+pymysql://app:app@localhost:3306/teatro</code> — driver, usuário, senha, host, porta e banco em uma linha.</li>
+    <li><code>RESERVATION_MINUTES=10</code> — duração da reserva sem tocar em código.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> princípio de configuração por ambiente (12-factor). O <code>.env</code> real está no <code>.gitignore</code> porque carrega credenciais; o exemplo é versionado para qualquer pessoa reproduzir. <code>database.py</code> chama <code>load_dotenv()</code> apontando para o arquivo, então basta subir a API — não é preciso exportar variável no terminal.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/requirements.txt</div>
+  <div class="role">Dependências do backend</div>
+  <ul>
+    <li><strong>fastapi</strong> + <strong>uvicorn</strong> (servidor), <strong>sqlalchemy</strong> + <strong>pymysql</strong> (ORM e driver), <strong>python-dotenv</strong>, <strong>pydantic</strong> (vem com o FastAPI).</li>
+    <li><strong>pytest</strong> + <strong>httpx</strong> (testes; o <code>TestClient</code> usa httpx) e <strong>locust</strong> (carga).</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> só o necessário para o escopo — nenhuma dependência “de conveniência” (sem Alembic, sem Celery, sem Redis). Menos peças, menos lugares para dar errado na apresentação.</div>
+</div>
+
+<h2 class="sec">6.2 Backend — a camada de dados</h2>
+
+<div class="pcard">
+  <div class="path">backend/app/database.py</div>
+  <div class="role">Fronteira com o banco: engine, sessão e Base</div>
+  <ul>
+    <li><code>load_dotenv(Path(__file__).resolve().parents[1] / ".env")</code> — carrega o <code>.env</code> ao lado de <code>app/</code>, sem depender do diretório de onde o comando foi executado.</li>
+    <li><code>create_engine(DATABASE_URL, pool_pre_ping=True)</code> — <code>pool_pre_ping</code> testa a conexão antes de usar, então a API sobrevive a reinício do MySQL (aconteceu na prática, ao recriar o container).</li>
+    <li><code>sessionmaker(..., autoflush=False, autocommit=False)</code> — nada é enviado ao banco sem <code>flush</code>/<code>commit</code> explícito; é o que permite controlar a ordem (<code>UPDATE</code> da expiração antes do <code>INSERT</code>).</li>
+    <li><code>class Base(DeclarativeBase)</code> — base dos modelos (estilo SQLAlchemy 2.0, com <code>Mapped</code>/<code>mapped_column</code>).</li>
+    <li><code>get_db()</code> é um <em>generator</em>: entrega a sessão, e no <code>finally</code> fecha. O FastAPI chama isso a cada requisição (<code>Depends(get_db)</code>).</li>
+    <li><code>create_session_factory(bind_engine)</code> — usado pelos testes para criar sessões em outro engine.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> uma sessão por requisição = uma unidade de trabalho. Fechar sempre evita conexão presa no pool. E <code>autocommit=False</code> é requisito do lock: sem transação explícita, o <code>FOR UPDATE</code> seria liberado imediatamente.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/timeutils.py</div>
+  <div class="role">Datas sempre em UTC</div>
+  <ul>
+    <li><code>utcnow()</code> = <code>datetime.now(timezone.utc).replace(tzinfo=None)</code> → devolve “UTC ingênuo” (sem timezone).</li>
+    <li><code>as_utc(value)</code> marca o datetime como UTC na hora de serializar.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> as colunas são <code>DateTime</code> simples (compatíveis com MySQL e SQLite) e o banco não guarda fuso. Guardar tudo em UTC e marcar na saída evita o bug clássico de reserva expirando 3 horas antes/depois. Quem converte para o fuso local é o navegador.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/models.py</div>
+  <div class="role">As duas tabelas e a garantia estrutural</div>
+  <ul>
+    <li><code>Seat</code>: <code>id</code>, <code>label</code> único (A1…A300), relacionamento com reservas.</li>
+    <li><code>Reservation</code>: <code>seat_id</code> (FK indexada), <code>user_id</code>, <code>status</code> (indexado), <code>expires_at</code>, <code>created_at</code>.</li>
+    <li><code>active_seat_id</code> é <code>Computed("CASE WHEN status IN ('reserved','paid') THEN seat_id ELSE NULL END", persisted=True)</code> → coluna <strong>gerada e armazenada</strong> pelo banco.</li>
+    <li><code>UniqueConstraint("active_seat_id", name="uq_seat_active_reservation")</code> — o nome aparece no erro de integridade e nos testes.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> o status fica só na reserva (fonte única, sem duplicar em <code>seats</code>) e a exclusividade vira uma restrição <em>de dados</em>, não uma convenção de código. Reserva encerrada vale <code>NULL</code> e pode repetir infinitas vezes.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/repositories.py</div>
+  <div class="role">O único lugar com SQL</div>
+  <ul>
+    <li><code>SqlAlchemySeatRepository</code>: <code>list_all_ordered</code> (mapa em ordem), <code>get_by_id_for_update</code> (<code>with_for_update()</code>), <code>count</code> (para a semeadura), <code>add_many</code>.</li>
+    <li><code>SqlAlchemyReservationRepository</code>: <code>get_active_for_seat(seat_id, for_update=False)</code> filtra <code>status IN ('reserved','paid')</code>; <code>get_by_id_for_update</code> trava a reserva no pagamento; <code>add</code>.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> o <code>for_update</code> como parâmetro mostra a intenção: listagem lê sem travar; operações de escrita travam. Se o dia a dia exigir outro banco, é este arquivo que muda — os serviços continuam iguais.</div>
+</div>
+
+<h2 class="sec">6.3 Backend — regras e borda</h2>
+
+<div class="pcard">
+  <div class="path">backend/app/expiration.py</div>
+  <div class="role">Strategy da expiração (a política, isolada)</div>
+  <ul>
+    <li><code>__init__</code> lê <code>RESERVATION_MINUTES</code> (padrão 10) — configurável por ambiente.</li>
+    <li><code>is_expired</code>: só é expirada se <code>status == "reserved"</code> e <code>expires_at &lt;= now</code> (reserva paga nunca expira).</li>
+    <li><code>expires_at(now)</code>: regra do prazo em um lugar só.</li>
+    <li><code>expire_if_needed</code>: muda para <code>expired</code> e devolve <code>True</code> — quem chamou decide o que fazer.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> nenhum <code>datetime</code> espalhado pelo serviço. Trocar “10 minutos fixos” por “até 30 min antes do espetáculo” é escrever outra classe com os mesmos três métodos.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/services.py</div>
+  <div class="role">Casos de uso + fronteira transacional (o arquivo mais importante)</div>
+  <ul>
+    <li><code>SeatService.list_seats</code>: para cada assento, busca a reserva ativa, aplica expiração e monta o DTO (<code>available</code>/<code>reserved</code>/<code>paid</code>); <code>commit</code> no fim persiste as expirações descobertas.</li>
+    <li><code>SeatService.seed_if_empty(300)</code>: idempotente — só semeia se a tabela estiver vazia.</li>
+    <li><code>ReservationService.reserve</code>: lock no assento → verifica reserva ativa → expira se vencida (<code>flush</code>) → cria reserva → <code>commit</code>.</li>
+    <li><code>ReservationService.pay</code>: lock na reserva → 404/403 → idempotente se já paga → 409 se expirada → <code>paid</code> com <code>expires_at = None</code>.</li>
+    <li><code>except DomainError: rollback; raise</code> e <code>except IntegrityError → ConflictError</code>: conversão de falha do banco em regra de negócio.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> é aqui que o requisito vive. O serviço não conhece HTTP nem SQL: ele conhece <em>casos de uso</em>. E concentra o <code>try/except</code> de transação, porque rollback é decisão do caso de uso, não do repositório.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/interfaces.py</div>
+  <div class="role">Os contratos (portas) do domínio</div>
+  <ul>
+    <li><code>@runtime_checkable class SeatRepository(Protocol)</code>: <code>list_all_ordered</code>, <code>get_by_id_for_update</code>, <code>count</code>, <code>add_many</code>.</li>
+    <li><code>ReservationRepository(Protocol)</code>: <code>get_active_for_seat</code>, <code>get_by_id_for_update</code>, <code>add</code>.</li>
+    <li><code>ExpirationPolicy(Protocol)</code>: <code>is_expired</code>, <code>expires_at</code>, <code>expire_if_needed</code>.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> <code>Protocol</code> é tipagem estrutural — o repositório não precisa <em>herdar</em> nada para cumprir o contrato, então não há acoplamento de herança. Os serviços anotam tipos abstratos e o editor passa a acusar erro se alguém trocar a assinatura.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/dependencies.py</div>
+  <div class="role">Composition root: onde as peças se encontram</div>
+  <ul>
+    <li><code>get_expiration_policy()</code> devolve <code>LazyReservationExpirationPolicy()</code>.</li>
+    <li><code>get_seat_service(db=Depends(get_db))</code> e <code>get_reservation_service(...)</code> montam repositórios + política + sessão.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> nenhuma rota constrói dependência. Para trocar a política ou usar um repositório de teste, muda-se <em>um</em> ponto. É o padrão que permite dizer “a regra não conhece a infraestrutura”.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/main.py</div>
+  <div class="role">Borda HTTP: rotas finas, CORS, semeadura e tradução de erro</div>
+  <ul>
+    <li><code>lifespan</code>: <code>Base.metadata.create_all()</code> + <code>seed_seats(300)</code> na subida (e <code>yield</code> no fim).</li>
+    <li><code>CORSMiddleware</code> com origens lidas de <code>CORS_ORIGINS</code> (padrão <code>localhost:5173</code>).</li>
+    <li><code>_handle_domain_error</code>: <code>NotFoundError→404</code>, <code>ConflictError→409</code>, <code>ForbiddenError→403</code>. Um único tradutor.</li>
+    <li>Rotas: <code>GET /health</code>, <code>GET /seats</code>, <code>POST /reserve</code> (201), <code>POST /pay</code> (200) — cada uma com 3 a 5 linhas.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> trocar o framework HTTP mexeria só neste arquivo. O <code>seed_seats</code> aceitar <code>db</code> opcional existe para os testes reaproveitarem a mesma semeadura com 10 assentos.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/schemas.py</div>
+  <div class="role">DTOs: o contrato da API</div>
+  <ul>
+    <li><code>ReserveRequest{seat_id, user_id}</code>, <code>PayRequest{reservation_id, user_id}</code> — entrada validada pelo Pydantic (falha vira 422 automático).</li>
+    <li><code>SeatOut</code>: <code>from_attributes=True</code> + <code>field_serializer("expires_at")</code> chamando <code>as_utc</code>.</li>
+    <li><code>ReservationOut</code>: serializa <code>expires_at</code> e <code>created_at</code> com <code>+00:00</code>.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> o modelo do banco não é o modelo da API. Campos internos (<code>active_seat_id</code>, por exemplo) nunca vazam, e o fuso é resolvido na serialização — o frontend recebe ISO com <code>Z</code>/<code>+00:00</code>.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/app/exceptions.py</div>
+  <div class="role">Erros de domínio, sem HTTP</div>
+  <ul>
+    <li><code>DomainError</code> (base) → <code>NotFoundError</code>, <code>ConflictError</code>, <code>ForbiddenError</code>.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> o serviço diz “conflito”, não “409”. Se amanhã a mesma regra for usada por um CLI ou uma fila, o erro continua fazendo sentido; só a borda HTTP traduz. Também é o que permite <code>except DomainError: rollback</code> em um único ponto.</div>
+</div>
+
+<h2 class="sec">6.4 Testes e demonstração</h2>
+
+<div class="pcard">
+  <div class="path">backend/tests/conftest.py</div>
+  <div class="role">Fixture única: app real apontando para banco de teste</div>
+  <ul>
+    <li><code>TEST_DATABASE_URL</code> (padrão SQLite em memória); <strong>trava</strong> que aborta se o banco MySQL não terminar em <code>_test</code>.</li>
+    <li><code>StaticPool</code> no SQLite; <code>pool_size=20, max_overflow=40</code> no MySQL (para as 100 simultâneas).</li>
+    <li>Injeta <code>engine</code>/<code>SessionLocal</code> em <code>app.database</code> e <code>app.main</code>; <code>drop_all</code> + <code>create_all</code>; semeia <strong>10</strong> assentos.</li>
+    <li><code>dependency_overrides[get_db]</code> troca a sessão real pela de teste; <code>TestClient</code> roda o ciclo de vida do app.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> os testes exercitam o app de verdade (rotas, DTOs, tradução de erro), mas em banco descartável. Sem a trava, um comando errado apagaria os 300 assentos de desenvolvimento.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/tests/test_reservation.py</div>
+  <div class="role">As seis regras de negócio</div>
+  <ul>
+    <li>Sucesso (201), conflito (409), pagamento (paid), pagamento por outro usuário (403).</li>
+    <li>Expiração: o helper <code>_expire()</code> recua <code>expires_at</code> no banco; a próxima leitura libera o assento.</li>
+    <li>Regressão: <code>test_seat_can_be_reused_after_repeated_expirations</code> — três ciclos no assento 5, cada um com um usuário diferente; documenta no docstring o bug do <code>UNIQUE(seat_id,status)</code>.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> cada teste nomeia uma garantia do enunciado. O de regressão existe porque o bug <em>aconteceu</em> — e um teste que reproduz o passado é a melhor defesa em uma banca.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/tests/test_concurrency.py</div>
+  <div class="role">A prova de concorrência real</div>
+  <ul>
+    <li><code>pytest.mark.skipif</code> em SQLite com justificativa explícita: SQLite ignora <code>FOR UPDATE</code>.</li>
+    <li>100 tarefas <code>asyncio</code> seguradas por um <code>Event</code> (barreira) e liberadas juntas.</li>
+    <li><code>httpx.ASGITransport</code> — a aplicação roda em processo, sem porta HTTP.</li>
+    <li>Asserções: <code>codes[201] == 1</code> e <code>codes[409] == 99</code>.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> é o único teste que prova o requisito central de verdade. Em SQLite ele seria uma mentira confortável — por isso é pulado com mensagem, não “adaptado”.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/demo_concurrency.py</div>
+  <div class="role">A demo que roda na frente da banca</div>
+  <ul>
+    <li>Escolhe o primeiro assento livre (ou <code>--seat</code>), abre <code>total+10</code> conexões no pool do httpx.</li>
+    <li>Barreira <code>asyncio.Event</code>: todas as tarefas esperam; <code>gate.set()</code> dispara as 100 juntas.</li>
+    <li>Conta os status com <code>collections.Counter</code> e imprime; retorna código de saída 0/1/2/3 (sucesso, resultado inesperado, banco sujo, backend fora).</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> o Locust distribui no tempo; este script garante o “mesmo instante”. Os códigos de saída existem para você perceber o erro sem ler o log.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">backend/locustfile.py</div>
+  <div class="role">Teste de carga pedido no enunciado</div>
+  <ul>
+    <li><code>SeatUser(HttpUser)</code> com <code>wait_time = between(0.1, 0.5)</code>; tarefa <code>reserve_same_seat</code> no <code>SEAT_ID</code>.</li>
+    <li><code>catch_response=True</code> + <code>response.success()</code> para 201 e 409; qualquer outro código vira <code>failure</code> com a mensagem.</li>
+    <li><code>name=f"/reserve (assento {SEAT_ID})"</code> agrupa as métricas sob um rótulo legível.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> sem esse tratamento, 99 conflitos corretos apareciam como “99% de falha” — um relatório vermelho por um sistema funcionando. Ajustar o instrumento não é maquiar: é declarar o que é sucesso no domínio.</div>
+</div>
+
+<h2 class="sec">6.5 Frontend</h2>
+
+<div class="pcard">
+  <div class="path">frontend/index.html + src/main.jsx</div>
+  <div class="role">Ponto de entrada</div>
+  <ul>
+    <li><code>index.html</code> tem o <code>&lt;div id="root"&gt;</code> e carrega <code>/src/main.jsx</code> como módulo.</li>
+    <li><code>main.jsx</code> cria a raiz React (<code>createRoot</code>), envolve em <code>StrictMode</code> e importa <code>styles.css</code>.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> é o mínimo do Vite + React; nenhuma configuração extra foi necessária.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">frontend/src/App.jsx</div>
+  <div class="role">Todo o comportamento da tela em um componente</div>
+  <ul>
+    <li>Estado: <code>seats</code>, <code>userId</code> (aleatório, editável), <code>notice</code>, <code>loading</code>, <code>refreshing</code>.</li>
+    <li><code>loadSeats(silent)</code> + <code>useEffect</code> com <code>setInterval(5000)</code> e <code>clearInterval</code> na limpeza.</li>
+    <li><code>reserve</code>/<code>pay</code> usam <code>fetch</code>, checam <code>res.ok</code> e exibem <code>data.detail</code> — a mensagem do backend.</li>
+    <li><code>handleSeatClick</code>: disponível → reserva; reservado → paga; pago → nada.</li>
+    <li><code>useMemo(summary)</code> conta os três estados; o grid renderiza 300 botões com classe por status e o horário de expiração dentro do botão reservado.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> o frontend é <em>stateless</em> em relação ao domínio: não decide se um assento está livre, apenas desenha o que a API respondeu. Isso elimina a classe de bug “a tela diz livre, o banco diz vendido”.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">frontend/src/styles.css</div>
+  <div class="role">Identidade visual e legibilidade do mapa</div>
+  <ul>
+    <li>Variáveis CSS para a paleta: fundo escuro, <code>--available #22c55e</code>, <code>--reserved #f59e0b</code>, <code>--paid #6366f1</code>, <code>--danger #ef4444</code>.</li>
+    <li><code>.seats-grid</code> com <code>grid-template-columns: repeat(auto-fill, minmax(54px,1fr))</code> — 300 assentos se ajustam à largura.</li>
+    <li>Gradientes por status, <code>.seat .sub</code> para o horário, <code>@media</code> para telas menores e para o projetor (900 px / 600 px).</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> cor é a informação principal (300 botões não podem exigir leitura); o contraste foi escolhido pensando em projeção.</div>
+</div>
+
+<div class="pcard">
+  <div class="path">frontend/vite.config.js + package.json</div>
+  <div class="role">Servidor de desenvolvimento e proxy</div>
+  <ul>
+    <li>Plugin React; <code>server.proxy['/api']</code> com <code>target</code> configurável por <code>VITE_API_TARGET</code> e <code>rewrite</code> removendo o prefixo <code>/api</code>.</li>
+    <li><code>package.json</code>: <code>dev</code>, <code>build</code>, <code>preview</code>; React 19 e Vite 6.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> o frontend chama sempre <code>/api/...</code>; quem resolve o endereço é o proxy. Em produção, um Nginx faria o mesmo papel.</div>
+</div>
+
+<h2 class="sec">6.6 Documentação (a que “vende” o projeto)</h2>
+<div class="pcard">
+  <div class="path">README.md · AGENTS.md · docs/</div>
+  <div class="role">Como executar, por que decidimos e como demonstrar</div>
+  <ul>
+    <li><strong>README</strong>: estrutura, execução em três terminais (Docker → backend → frontend), testes nos dois modos, demo e limitações.</li>
+    <li><strong>AGENTS.md</strong>: regras de engenharia (concorrência, integridade, expiração, convenções, comandos).</li>
+    <li><strong>docs/adr-001</strong>: o registro da decisão e da correção do <code>UNIQUE(seat_id,status)</code>, com consequências positivas e negativas.</li>
+    <li><strong>docs/spec-api.md</strong>: contratos, corpos e códigos de cada endpoint.</li>
+    <li><strong>docs/apresentacao.md</strong> e <strong>checklist</strong>: roteiro e operação do dia.</li>
+  </ul>
+  <div class="why"><b>Por que assim:</b> decisão sem registro é opinião. O ADR é o documento que responde “por que não Redis?” sem precisar de memória — e mostra maturidade de engenharia.</div>
+</div>
+
+<!-- ============================ CAP 7 ============================ -->
+<h1 class="chap">7 · Runbook da demonstração ao vivo</h1>
+<div class="chap-head">
+  <div class="kicker">Leia em voz alta com o notebook na mão — 4 minutos de demo</div>
+  <p class="lead">A demo é o momento de maior risco e de maior retorno. Faça <strong>sempre nesta ordem</strong> e diga o que está fazendo antes de cada comando: se algo falhar, a banca entende que foi o ambiente, não o projeto.</p>
+</div>
+
+<h2 class="sec">7.1 Pré-voo (10 minutos antes, fora da sala)</h2>
+<table class="grid">
+  <thead><tr><th style="width:58mm">Passo</th><th>Comando</th><th style="width:38mm">Confirma</th></tr></thead>
+  <tbody>
+    <tr><td>1. Banco limpo</td><td><code>docker compose down -v &amp;&amp; docker compose up -d</code></td><td><code>docker compose ps</code> → <em>healthy</em></td></tr>
+    <tr><td>2. Backend</td><td><code>cd backend</code> · <code>uvicorn app.main:app --port 8000</code></td><td><code>GET /health</code> → <code>{"status":"ok"}</code></td></tr>
+    <tr><td>3. Frontend</td><td><code>cd frontend</code> · <code>npm run dev</code></td><td><code>localhost:5173</code> com 300 assentos</td></tr>
+    <tr><td>4. Teste rápido</td><td><code>python demo_concurrency.py --requests 100</code></td><td><code>201: 1</code> / <code>409: 99</code></td></tr>
+    <tr><td>5. Reset para a apresentação</td><td><code>docker compose down -v &amp;&amp; docker compose up -d</code> e reinicie o backend</td><td>300 disponíveis / 0 reservados</td></tr>
+  </tbody>
+</table>
+<div class="tip"><b class="t">Por que reiniciar o backend depois do reset</b>
+As tabelas são criadas e semeadas no <em>lifespan</em> da aplicação. Se o banco for recriado com a API já no ar, as tabelas não existem mais — subir a API de novo resolve em 3 segundos e evita o pânico.</div>
+
+<h2 class="sec">7.2 Sequência da demo, com fala em cada passo</h2>
+<div class="steps">
+  <div class="st"><b>Mapa (20 s).</b> Abra <code>localhost:5173</code>.<br><em>“São 300 assentos, semeados na subida da API. Verde é livre, laranja é reserva ativa, azul é pago. O mapa se atualiza sozinho a cada 5 segundos.”</em></div>
+  <div class="st"><b>Reserva (25 s).</b> Clique em um assento verde.<br><em>“Reservei o assento A42. Ele ficou laranja e mostra o horário de expiração — que veio do servidor em UTC e foi convertido para o meu fuso. São 10 minutos.”</em></div>
+  <div class="st"><b>Conflito (25 s).</b> Em outra janela anônima (ou com outro <code>user_id</code>), clique no mesmo assento.<br><em>“409 Conflict — o assento está indisponível. O segundo usuário não entra na fila de venda; ele é recusado.”</em></div>
+  <div class="st"><b>Pagamento (25 s).</b> Volte à primeira janela e clique no assento laranja.<br><em>“Pagamento simulado: a reserva vira ‘paga’, o horário de expiração desaparece — reserva paga não expira — e o assento continua bloqueado.”</em> Mostre o 403 tentando pagar de outro usuário.</div>
+  <div class="st"><b>As 100 simultâneas (60 s).</b> No terminal: <code>python demo_concurrency.py --requests 100</code>.<br><em>“Agora a prova do requisito. O script abre 100 conexões, segura todas numa barreira e dispara no mesmo instante, no mesmo assento. Resultado: uma venda e 99 conflitos — sempre, não por sorte.”</em></div>
+  <div class="st"><b>Testes (30 s).</b> <code>pytest -q</code> com <code>TEST_DATABASE_URL</code> do MySQL.<br><em>“Sete testes passando, incluindo o de concorrência real. No SQLite são seis e o de concorrência é pulado — porque o SQLite ignora FOR UPDATE e o teste seria uma mentira.”</em></div>
+  <div class="st"><b>Locust (opcional, 40 s).</b> <code>locust -f locustfile.py -u 100 -r 100 --headless --run-time 10s</code><br><em>“100 usuários virtuais. Zero falhas: 201 e 409 são resultados corretos nesta disputa; falha seria qualquer outro código.”</em></div>
+</div>
+
+<h2 class="sec">7.3 Se o tempo for curto (versão de 2 minutos)</h2>
+<ol>
+  <li>Mapa + uma reserva mostrando a expiração (20 s).</li>
+  <li><code>demo_concurrency.py --requests 100</code> (60 s) — este é o momento que o professor quer ver.</li>
+  <li>Uma frase de fechamento (20 s).</li>
+</ol>
+
+<h2 class="sec">7.4 Depois da demo (não deixe o banco sujo)</h2>
+<pre class="code">docker compose down -v &amp;&amp; docker compose up -d
+<span class="cm"># reinicie o backend para semear novamente os 300 assentos</span></pre>
+
+<!-- ============================ CAP 8 ============================ -->
+<h1 class="chap">8 · Perguntas da banca (com respostas prontas)</h1>
+<div class="chap-head">
+  <div class="kicker">Estude as 18 respostas — as três primeiras aparecem em toda banca</div>
+  <p class="lead">Responda em uma ou duas frases, olhando para quem perguntou, e ofereça a prova (“posso mostrar no arquivo X”). Nunca invente: se não souber, diga o que o projeto faz e por quê.</p>
+</div>
+
+<div class="q">1. Por que não usar Redis para o lock?</div>
+<div class="a">Porque o Redis resolveria <em>onde</em> a disputa ocorre, mas não <em>o que</em> impede a dupla venda. Ele adiciona um segundo estado que precisa concordar com o banco e, se o processo cair entre pegar o lock e gravar a reserva, o TTL expira e outro cliente entra. A garantia que importa — no máximo uma reserva ativa por assento — é uma restrição do banco, válida mesmo que a aplicação erre. Como ela é necessária de qualquer forma, o Redis só somaria complexidade. (Cap. 2.4)</div>
+
+<div class="q">2. Por que não um job verificando as reservas a cada segundo?</div>
+<div class="a">Porque o enunciado proíbe, e porque é caro sem necessidade: seria uma consulta por segundo para sempre, mesmo sem ninguém usando o sistema. Trocamos por expiração preguiçosa: a validade é uma conta feita no instante em que alguém lê, reserva ou paga. O assento fica livre exatamente quando importa. (Cap. 2.5)</div>
+
+<div class="q">3. E se ninguém acessar o assento depois de expirar?</div>
+<div class="a">A linha continua <code>reserved</code> no banco, mas a próxima leitura já a considera vencida e a marca <code>expired</code>. Nenhuma venda é afetada, porque nenhuma decisão de venda usa o status sem antes aplicar a política de expiração. É um trade-off consciente: o estado é normalizado sob demanda. (Cap. 3.6)</div>
+
+<div class="q">4. Como o <code>SELECT … FOR UPDATE</code> funciona no MySQL?</div>
+<div class="a">Ele coloca um lock exclusivo na linha lida até o fim da transação. Outra transação que tente a mesma linha espera (até <code>innodb_lock_wait_timeout</code>, 50 s por padrão). Como o nosso lock é na linha do assento, assentos diferentes são vendidos em paralelo. (Cap. 3.3)</div>
+
+<div class="q">5. Se o lock já garante tudo, por que a restrição UNIQUE?</div>
+<div class="a">Defesa em profundidade. O lock organiza a fila dentro da aplicação; a restrição garante a verdade no dado. Se um bug futuro criar um caminho que insira reserva sem passar pelo serviço, o banco ainda recusa a segunda reserva ativa. O <code>IntegrityError</code> é convertido no mesmo 409.</div>
+
+<div class="q">6. Por que o <code>flush()</code> antes do <code>insert</code>?</div>
+<div class="a">Porque a reserva vencida precisa virar <code>expired</code> no banco antes de a nova ser inserida: é isso que faz a coluna gerada <code>active_seat_id</code> virar <code>NULL</code> e liberar o <code>UNIQUE</code>. Sem o flush, o SQLAlchemy poderia emitir o <code>INSERT</code> antes do <code>UPDATE</code> e o banco recusaria uma reserva legítima. (Cap. 3.4)</div>
+
+<div class="q">7. Por que UNIQUE na coluna gerada e não em (seat_id, status)?</div>
+<div class="a">Porque <code>(seat_id,'expired')</code> colidiria com a expiração anterior e o assento ficaria travado para sempre após o segundo vencimento. A coluna gerada só tem valor quando a reserva está ativa, então <code>NULL</code> se repete à vontade. Foi um bug real, documentado no ADR e coberto por teste de regressão. (Cap. 3.2)</div>
+
+<div class="q">8. O que é uma coluna gerada <code>STORED</code>?</div>
+<div class="a">É uma coluna calculada pelo banco a partir de outras colunas e gravada fisicamente na linha. Como é armazenada, pode receber índice e <code>UNIQUE</code> — e o valor é recalculado automaticamente em cada <code>UPDATE</code>. MySQL 8 e SQLite 3.31+ suportam.</div>
+
+<div class="q">9. O assento pago expira?</div>
+<div class="a">Não. Ao pagar, <code>status</code> vira <code>paid</code> e <code>expires_at</code> é zerado. A coluna gerada continua preenchida, então o <code>UNIQUE</code> segue impedindo outra reserva ativa — o assento fica indisponível para sempre. (Cap. 3.5)</div>
+
+<div class="q">10. O que acontece se o servidor cair no meio de uma reserva?</div>
+<div class="a">A transação não confirmada é desfeita pelo banco quando a conexão cai — não sobra reserva pela metade nem lock preso. É a propriedade de atomicidade (o “A” de ACID). Por isso o <code>commit</code> é a última linha do caso de uso.</div>
+
+<div class="q">11. Por que 409 e não 400 ou 423?</div>
+<div class="a">400 seria erro de requisição — a requisição é válida. 423 (Locked) é do protocolo WebDAV e traria semântica errada. 409 Conflict significa exatamente isto: a requisição é válida, mas conflita com o estado atual do recurso. É o código previsto para concorrência otimista/pessimista.</div>
+
+<div class="q">12. Como isso escalaria para vários servidores?</div>
+<div class="a">Sem mudança: a serialização está no banco, não na memória do processo. Várias instâncias do FastAPI podem atender, porque o <code>FOR UPDATE</code> e o <code>UNIQUE</code> valem para todas. O limite passa a ser a contenção por assento — que é o próprio requisito.</div>
+
+<div class="q">13. Qual é o gargalo?</div>
+<div class="a">A contenção no mesmo assento: as requisições esperam o lock daquela linha. É o preço da consistência forte, e é aceitável porque a transação dura milissegundos. Assentos diferentes não se bloqueiam — medimos ~300 ms de média com 100 usuários no mesmo assento.</div>
+
+<div class="q">14. Por que os testes rodam em SQLite se o sistema usa MySQL?</div>
+<div class="a">Velocidade e isolamento: as seis regras de negócio rodam em memória em menos de 1 segundo. O teste que depende do comportamento real de lock é explicitamente pulado em SQLite (<code>skipif</code> com justificativa) e roda no MySQL, num banco separado <code>teatro_test</code>. Testar concorrência em SQLite seria uma mentira confortável.</div>
+
+<div class="q">15. Por que não há autenticação?</div>
+<div class="a">O escopo é a regra de concorrência; o <code>user_id</code> é informado pelo cliente, como em um protótipo. A consequência é conhecida: sem login, alguém poderia usar outro identificador. A proteção que existe é a de negócio — uma reserva por assento e pagamento apenas pelo dono da reserva (403). Em produção, entraria JWT/sessão e o <code>user_id</code> viria do token.</div>
+
+<div class="q">16. Como evitar que um usuário reserve os 300 assentos?</div>
+<div class="a">Hoje não há limite — é uma limitação declarada no README. A solução seria uma cota por usuário (contagem de reservas ativas na mesma transação, com o mesmo padrão de lock) ou rate limiting na borda. Nada disso muda a garantia central.</div>
+
+<div class="q">17. Por que não usam Alembic (migrations)?</div>
+<div class="a">Decisão de escopo: o schema é criado por <code>create_all</code> na subida, o que torna a demonstração de um comando. Em um sistema real, migrations seriam obrigatórias — está registrado como limitação no README, junto com o efeito: mudança de modelo exige recriar o banco.</div>
+
+<div class="q">18. E se o relógio do servidor estiver errado?</div>
+<div class="a">Todas as comparações usam a mesma fonte de tempo — <code>utcnow()</code> da aplicação — e as datas são gravadas em UTC, então não há ambiguidade de fuso. Um desvio de relógio deslocaria a expiração em segundos, o que é aceitável aqui; em um cenário mais rigoroso usaríamos <code>NOW()</code> do banco como fonte única de tempo.</div>
+
+<div class="tip"><b class="t">Se a pergunta for sobre algo que não fizemos</b>
+Responda em três partes: “não implementamos porque o escopo pedia X; a consequência é Y; se fosse necessário, faríamos Z com o mesmo padrão de lock/constraint”. Isso demonstra domínio <em>e</em> honestidade — exatamente o que a banca quer.</div>
+
+<!-- ============================ CAP 9 ============================ -->
+<h1 class="chap">9 · Plano B, glossário e números</h1>
+<div class="chap-head">
+  <div class="kicker">A página que salva a apresentação</div>
+  <p class="lead">Se algo der errado, ninguém precisa improvisar: está tudo aqui. E, no fim, o “cartão de memória” com o que cada pessoa precisa saber de cor.</p>
+</div>
+
+<h2 class="sec">9.1 Plano B — problema → o que fazer</h2>
+<table class="grid">
+  <thead><tr><th style="width:52mm">Problema</th><th>O que fazer</th></tr></thead>
+  <tbody>
+    <tr><td>Docker Desktop não abre</td><td>Reiniciar o Windows e abrir o Docker antes de qualquer coisa; validar 10 min antes. Alternativa: MySQL local + ajustar <code>DATABASE_URL</code>.</td></tr>
+    <tr><td><code>ports are not available</code> (3306 ocupada)</td><td>Criar <code>.env</code> na raiz com <code>MYSQL_PORT=3307</code> e ajustar a porta em <code>backend/.env</code>.</td></tr>
+    <tr><td>Backend: <code>Can't connect to MySQL</code></td><td>Banco ainda <em>starting</em>: <code>docker compose ps</code>, esperar <em>healthy</em> e subir a API de novo.</td></tr>
+    <tr><td>Tabelas não existem após reset</td><td>Reiniciar o backend (o lifespan cria e semeia).</td></tr>
+    <tr><td>Demo imprime 100×409</td><td>O assento já estava reservado: use <code>--seat</code> com outro livre ou recrie o banco.</td></tr>
+    <tr><td>Demo imprime 100×201 (impossível)</td><td>Sinal de que não é MySQL (SQLite ignora o lock) — confira <code>docker compose ps</code> e <code>backend/.env</code>.</td></tr>
+    <tr><td>Porta 8000 presa por processo antigo</td><td><code>Get-NetTCPConnection -LocalPort 8000 -State Listen | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }</code></td></tr>
+    <tr><td>Frontend não carrega</td><td><code>cd frontend &amp;&amp; npm install &amp;&amp; npm run dev</code>; conferir backend na 8000.</td></tr>
+    <tr><td>Sem internet</td><td>Tudo funciona: imagem do MySQL, <code>node_modules</code> e <code>.venv</code> já estão na máquina.</td></tr>
+  </tbody>
+</table>
+
+<h2 class="sec">9.2 Glossário (não confunda!)</h2>
+<table class="grid">
+  <thead><tr><th style="width:44mm">Termo</th><th>Significado no projeto</th></tr></thead>
+  <tbody>
+    <tr><td>Transação / ACID</td><td>Conjunto de operações que ou acontece inteiro ou não acontece. É o que garante que não exista reserva “pela metade”.</td></tr>
+    <tr><td>Lock pessimista</td><td>Trava a linha antes de decidir (<code>FOR UPDATE</code>). Bom quando a disputa é pelo <em>mesmo</em> recurso.</td></tr>
+    <tr><td>Lock otimista</td><td>Deixa acontecer e detecta conflito na gravação (coluna de versão), com retry. Ruim para 100 na mesma linha.</td></tr>
+    <tr><td><code>SELECT … FOR UPDATE</code></td><td>Leitura que adquire lock exclusivo da linha até o fim da transação.</td></tr>
+    <tr><td>Coluna gerada</td><td>Coluna calculada pelo banco (<code>active_seat_id</code>); <code>STORED</code> grava fisicamente e aceita índice.</td></tr>
+    <tr><td>Expiração preguiçosa</td><td>A validade é avaliada no uso, não por um processo periódico.</td></tr>
+    <tr><td>Polling</td><td>Consultar repetidamente em intervalo fixo (aqui: o frontend a cada 5 s — só leitura, sem custo de decisão).</td></tr>
+    <tr><td>Idempotência</td><td>Repetir a operação não muda o resultado: pagar duas vezes devolve a mesma reserva.</td></tr>
+    <tr><td>DTO</td><td>Objeto de transferência: o formato da API, separado do modelo do banco (<code>schemas.py</code>).</td></tr>
+    <tr><td><code>Protocol</code></td><td>Interface estrutural do Python: basta ter os métodos, sem herdar de nada (<code>interfaces.py</code>).</td></tr>
+    <tr><td>Composition root</td><td>O lugar único onde as implementações são escolhidas e injetadas (<code>dependencies.py</code>).</td></tr>
+    <tr><td>Defesa em profundidade</td><td>Duas camadas independentes: lock (organiza) + constraint (garante).</td></tr>
+  </tbody>
+</table>
+
+<h2 class="sec">9.3 Cartão de memória — 3 frases por pessoa</h2>
+<table class="grid">
+  <thead><tr><th style="width:22mm">Quem</th><th>As três frases que não podem ser esquecidas</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Pessoa 1</strong></td><td>1) 300 assentos, reserva de 10 min, sem dupla venda e sem job de varredura.<br>2) O difícil não é a tela: é concorrência + expiração.<br>3) A solução mora no banco, não na memória da aplicação.</td></tr>
+    <tr><td><strong>Pessoa 2</strong></td><td>1) Quatro camadas, e a regra não conhece HTTP nem SQL.<br>2) Redis reduz disputa, mas não impede dupla venda — por isso foi descartado.<br>3) Job de 1 s é proibido pelo enunciado; expiração é sob demanda.</td></tr>
+    <tr><td><strong>Pessoa 3</strong></td><td>1) <code>FOR UPDATE</code> trava a linha do assento: concorrentes entram na fila.<br>2) <code>UNIQUE(active_seat_id)</code> é a barreira final: só uma reserva ativa por assento.<br>3) <code>flush</code> antes do insert libera o <code>UNIQUE</code> da reserva vencida.</td></tr>
+    <tr><td><strong>Pessoa 4</strong></td><td>1) SOLID na prática: cada mudança mexe em um arquivo só.<br>2) Repository, Strategy, DTO e injeção de dependência.<br>3) 7 testes no MySQL, 6+1 no SQLite, com trava de <code>_test</code>.</td></tr>
+    <tr><td><strong>Pessoa 5</strong></td><td>1) O frontend não decide nada: espelha o servidor a cada 5 s.<br>2) 100 simultâneas → 1×201 e 99×409, sempre.<br>3) 409 é sucesso; erro seria qualquer outro código.</td></tr>
+  </tbody>
+</table>
+
+<h2 class="sec">9.4 Números para citar de cabeça</h2>
+<div class="tl">300 assentos · 10 minutos de reserva · 100 requisições simultâneas
+1 × 201 Created · 99 × 409 Conflict
+7 testes no MySQL · 6 + 1 skipped no SQLite
+957 requisições no Locust · 0 falhas · ~300 ms de média
+2 tabelas · 2 camadas de garantia · 0 processos de varredura</div>
+
+<h2 class="sec">9.5 Antes de entrar na sala — checklist de 30 segundos</h2>
+<table class="grid">
+  <thead><tr><th style="width:12mm">✓</th><th>Item</th></tr></thead>
+  <tbody>
+    <tr><td class="c">☐</td><td>Banco <em>healthy</em>, backend na 8000, frontend na 5173, 300 assentos livres.</td></tr>
+    <tr><td class="c">☐</td><td>Terminal aberto em <code>backend/</code> para rodar a demo sem digitar caminho.</td></tr>
+    <tr><td class="c">☐</td><td><code>docs/checklist-apresentacao.md</code> aberto no celular ou em outra aba.</td></tr>
+    <tr><td class="c">☐</td><td>Cada pessoa sabe qual arquivo abre e qual é a sua frase de efeito.</td></tr>
+    <tr><td class="c">☐</td><td>Notificações do sistema desligadas; zoom do editor em 120% para a turma ler.</td></tr>
+    <tr><td class="c">☐</td><td>Link do repositório copiado para o chat/plataforma: <strong>github.com/guilherme07O/projeto-teatro</strong>.</td></tr>
+  </tbody>
+</table>
+
+<div class="key"><span class="lbl">Se só uma frase ficar na memória da banca, que seja esta</span>
+“Nós não confiamos na aplicação para garantir o assento: <em>o banco</em> garante — com uma transação que bloqueia a linha e uma restrição que recusa a segunda reserva ativa. E a expiração não é um processo rodando: é uma conta feita no momento exato em que o assento é usado.”</div>
+
+<h2 class="sec">9.6 Ficha técnica do projeto</h2>
+<table class="grid">
+  <thead><tr><th style="width:38mm">Item</th><th>Definição</th></tr></thead>
+  <tbody>
+    <tr><td>Domínio</td><td>Venda de ingressos com assento marcado — teatro de 300 lugares</td></tr>
+    <tr><td>Requisito central</td><td>Nenhuma dupla venda do mesmo assento, mesmo com 100 requisições simultâneas</td></tr>
+    <tr><td>Requisito de expiração</td><td>Reserva válida por 10 min, sem processo consultando o banco periodicamente</td></tr>
+    <tr><td>Stack</td><td>Python 3.11+ · FastAPI · SQLAlchemy 2 · MySQL 8.4 · Docker Compose · React 19 · Vite 6</td></tr>
+    <tr><td>Garantia de exclusividade</td><td>Transação + <code>SELECT … FOR UPDATE</code> + <code>UNIQUE(active_seat_id)</code></td></tr>
+    <tr><td>Garantia de expiração</td><td><code>expires_at</code> + política preguiçosa (<code>RESERVATION_MINUTES=10</code>)</td></tr>
+    <tr><td>Endpoints</td><td><code>GET /health</code> · <code>GET /seats</code> · <code>POST /reserve</code> (201) · <code>POST /pay</code> (200)</td></tr>
+    <tr><td>Erros</td><td>409 conflito de assento · 403 reserva de outro usuário · 404 inexistente</td></tr>
+    <tr><td>Testes</td><td>7 no MySQL (inclui concorrência real) · 6 + 1 skipped no SQLite</td></tr>
+    <tr><td>Demonstração</td><td>100 requisições simultâneas → <strong>1×201</strong> e <strong>99×409</strong></td></tr>
+    <tr><td>Carga</td><td>Locust, 100 usuários, 409 contado como sucesso</td></tr>
+    <tr><td>Repositório</td><td><strong>github.com/guilherme07O/projeto-teatro</strong> · 6 commits · 36 arquivos</td></tr>
+    <tr><td>Limitações declaradas</td><td>Sem migrations (Alembic), sem autenticação real, sem cota por usuário</td></tr>
+  </tbody>
+</table>
+
+<pre class="code"><span class="cm"># sequencia completa para reproduzir a apresentacao</span>
+docker compose up -d                        <span class="cm"># banco (esperar "healthy")</span>
+cd backend &amp;&amp; uvicorn app.main:app --port 8000
+cd frontend &amp;&amp; npm run dev
+cd backend &amp;&amp; python demo_concurrency.py --requests 100
+pytest -q                                   <span class="cm"># 7 passed com TEST_DATABASE_URL no teatro_test</span>
+locust -f locustfile.py -u 100 -r 100</pre>
+
+<div class="closing">
+  <div class="kicker">Fim do roteiro · 15 minutos de fala</div>
+  <div class="close-title">Obrigado.</div>
+  <div class="close-sub">As duas respostas, em uma frase cada — para repetir se a banca pedir o resumo final.</div>
+
+  <div class="close-card">
+    <div class="lbl">1 · Dois usuários nunca compram o mesmo assento</div>
+    <p>A reserva roda em uma transação que bloqueia a linha do assento com <code>SELECT … FOR UPDATE</code> — concorrentes entram na fila — e o banco ainda recusa a segunda reserva ativa por um <code>UNIQUE</code> sobre a coluna gerada <code>active_seat_id</code>. Quem perde recebe <strong>409 Conflict</strong>: nas 100 requisições simultâneas, exatamente uma venceu.</p>
+  </div>
+
+  <div class="close-card">
+    <div class="lbl">2 · A reserva expira sem verificar o banco a cada segundo</div>
+    <p>Cada reserva carrega <code>expires_at</code>, e a validade é avaliada no momento do uso — listar, reservar ou pagar. Não há job, cron ou polling: o assento volta a ficar livre no instante em que alguém precisa dele.</p>
+  </div>
+
+  <div class="close-foot">
+    <div class="close-repo">github.com/guilherme07O/projeto-teatro</div>
+    <div class="small">Projeto entregue: 6 commits · 36 arquivos versionados · 7 testes no MySQL · demonstração de 1×201 e 99×409.</div>
+  </div>
+
+  <div class="endnote">
+    <strong>Venda de Ingressos com Assento Marcado</strong> · roteiro de apresentação para equipe de 5 · projeto-teatro<br>
+    Documento gerado a partir do código-fonte do repositório. Suíte: 7 passed (MySQL) · 6 passed + 1 skipped (SQLite).<br>
+    Capítulos 1–5 = falas cronometradas · Capítulo 6 = dossiê dos 25 arquivos · Capítulos 7–9 = demo, perguntas e plano B.
+  </div>
+</div>
+
+</body>
+</html>

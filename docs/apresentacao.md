@@ -1,5 +1,7 @@
 # Roteiro da apresentação
 
+> **Versão completa (recomendada para a equipe de 5):** [`roteiro-apresentacao-5-pessoas.pdf`](roteiro-apresentacao-5-pessoas.pdf) — 40 páginas, falas cronometradas por integrante, arquitetura, comparação de alternativas, padrões de projeto/SOLID, dossiê de cada arquivo, runbook da demo e 18 perguntas da banca com respostas. Este arquivo aqui é o resumo de 1 página.
+
 Duração sugerida: **10 a 15 minutos**. A nota da apresentação e o conhecimento demonstrado valem 70% da avaliação.
 
 ## 1. Contexto e problema (1–2 min)
