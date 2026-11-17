@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ambientes virtuais (inclui .venv_old_machine/, .venv311/, etc.)
+.venv/
+venv/
+env/
+.venv*/
+*_venv*/
+
+# Node
+node_modules/
+dist/
+frontend/node_modules/
+frontend/dist/
+
+# Env/IDE
+.env
+.DS_Store
+.vscode/
+.idea/
+
+# Local DB/data
+*.sqlite
+*.sqlite3
+*.db
+mysql_data/
+
+# Logs
+*.log
