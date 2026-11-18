@@ -22,14 +22,12 @@ class SeatOut(BaseModel):
 
     id: int
     label: str
-    status: str  # available | reserved | paid
+    status: str
     reservation_id: int | None = None
     expires_at: datetime | None = None
 
     @field_serializer("expires_at")
     def _serialize_expires_at(self, value: datetime | None):
-        # Datas são gravadas em UTC (naive); marcamos como UTC para o navegador
-        # converter corretamente para o fuso local do usuário.
         return as_utc(value)
 
 

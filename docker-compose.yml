@@ -8,12 +8,9 @@ services:
       MYSQL_USER: app
       MYSQL_PASSWORD: app
     ports:
-      # 3306 por padrão; defina MYSQL_PORT no .env se a porta já estiver em uso
-      # (ex.: um MySQL instalado na máquina). O backend deve usar a mesma porta.
       - "${MYSQL_PORT:-3306}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      # Cria o banco teatro_test (usado pelos testes) na primeira inicialização.
       - ./docker/mysql-init:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]

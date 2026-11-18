@@ -45,7 +45,6 @@ def test_100_requisicoes_simultaneas_apenas_uma_vence(client):
                 return response.status_code
 
             tasks = [asyncio.create_task(fire(index)) for index in range(100)]
-            # Pequena pausa para que todas as tasks fiquem prontas antes do disparo.
             await asyncio.sleep(0.2)
             gate.set()
             return await asyncio.gather(*tasks)

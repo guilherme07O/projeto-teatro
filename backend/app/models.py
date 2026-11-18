@@ -18,9 +18,6 @@ class Seat(Base):
 class Reservation(Base):
     __tablename__ = "reservations"
     __table_args__ = (
-        # Garante no banco, no máximo, UMA reserva ativa (reserved/paid) por assento.
-        # Coluna gerada: vale NULL quando a reserva está encerrada (expired/cancelled),
-        # permitindo reutilizar o assento após a expiração quantas vezes for necessário.
         UniqueConstraint("active_seat_id", name="uq_seat_active_reservation"),
     )
 
@@ -28,7 +25,6 @@ class Reservation(Base):
     seat_id: Mapped[int] = mapped_column(ForeignKey("seats.id"), nullable=False, index=True)
     user_id: Mapped[str] = mapped_column(String(100), nullable=False)
     status: Mapped[str] = mapped_column(String(20), nullable=False, index=True)
-    # status: reserved | paid | expired | cancelled
     active_seat_id: Mapped[int | None] = mapped_column(
         Integer,
         Computed(

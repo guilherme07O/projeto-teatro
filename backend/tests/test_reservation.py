@@ -42,7 +42,6 @@ def test_pay_confirms_reservation(client):
     assert p.status_code == 200
     assert p.json()["status"] == "paid"
 
-    # assento pago continua indisponível
     r2 = client.post("/reserve", json={"seat_id": 2, "user_id": "user-b"})
     assert r2.status_code == 409
 
@@ -56,12 +55,10 @@ def test_pay_rejects_another_user(client):
 
 
 def test_expired_reservation_becomes_available(client):
-    # cria a reserva
     r = client.post("/reserve", json={"seat_id": 3, "user_id": "user-a"})
     assert r.status_code == 201
     _expire(r.json()["id"])
 
-    # o próximo acesso normaliza a reserva vencida e libera o assento
     seats = {seat["id"]: seat for seat in client.get("/seats").json()}
     assert seats[3]["status"] == "available"
 
@@ -83,7 +80,6 @@ def test_seat_can_be_reused_after_repeated_expirations(client):
         assert resp.status_code == 201, f"reserva #{attempt} deveria funcionar"
         _expire(resp.json()["id"])
 
-    # após três ciclos, o assento continua disponível
     seats = {seat["id"]: seat for seat in client.get("/seats").json()}
     assert seats[5]["status"] == "available"
 

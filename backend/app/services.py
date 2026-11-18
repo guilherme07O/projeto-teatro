@@ -64,18 +64,14 @@ class ReservationService:
     def reserve(self, seat_id: int, user_id: str) -> Reservation:
         now = utcnow()
         try:
-            # 1) Bloqueia a linha do assento: serializa concorrentes do MESMO assento.
             seat = self.seats.get_by_id_for_update(seat_id)
             if not seat:
                 raise NotFoundError("Assento não encontrado")
 
-            # 2) Verifica a reserva ativa (também bloqueada, quando existir).
             active = self.reservations.get_active_for_seat(seat_id, for_update=True)
             if active:
-                # Expiração preguiçosa: quem encontra a reserva vencida a encerra.
                 if not self.expiration.expire_if_needed(active, now):
                     raise ConflictError("Assento indisponível")
-                # Libera a UNIQUE (active_seat_id) ANTES de inserir a nova reserva.
                 self.db.flush()
 
             reservation = Reservation(
@@ -93,8 +89,6 @@ class ReservationService:
             self.db.rollback()
             raise
         except IntegrityError:
-            # Barreira final: duas transações passaram pela verificação e o banco
-            # recusou a segunda reserva ativa para o mesmo assento.
             self.db.rollback()
             raise ConflictError("Assento indisponível")
         except Exception:

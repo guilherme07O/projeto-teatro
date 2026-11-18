@@ -30,7 +30,7 @@ async def _fire(client: httpx.AsyncClient, gate: asyncio.Event, seat_id: int, in
             json={"seat_id": seat_id, "user_id": f"demo-{index}"},
         )
         return response.status_code
-    except httpx.HTTPError as exc:  # falha de transporte não deve derrubar a demo
+    except httpx.HTTPError as exc:
         return f"erro:{exc.__class__.__name__}"
 
 
@@ -61,7 +61,6 @@ async def run(host: str, seat_id: int | None, total: int, timeout: float) -> int
             asyncio.create_task(_fire(client, gate, seat_id, index))
             for index in range(total)
         ]
-        # Dá tempo para todas as conexões serem abertas antes do disparo simultâneo.
         await asyncio.sleep(0.2)
         gate.set()
         results = await asyncio.gather(*tasks)
